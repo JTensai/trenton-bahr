@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  request_type: MyString
+  name: MyString
+  phone_number: MyString
+  address: MyString
+  email: MyString
+  comments: MyText
+  contact_time: MyString
+  preferred_time: 2013-07-16 17:25:15
+  preferred_day: MyString
+  preferred_date: 2013-07-16
+  session_type: MyString
+  auction_type: MyString
+
+two:
+  request_type: MyString
+  name: MyString
+  phone_number: MyString
+  address: MyString
+  email: MyString
+  comments: MyText
+  contact_time: MyString
+  preferred_time: 2013-07-16 17:25:15
+  preferred_day: MyString
+  preferred_date: 2013-07-16
+  session_type: MyString
+  auction_type: MyString

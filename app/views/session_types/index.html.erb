@@ -1,0 +1,26 @@
+<br><br><h3 style="text-align:center;">Listing Session Types</h3>
+
+<div class="row">
+  <div class="large-3 large-centered columns">
+      <%= link_to 'New Session Type', new_session_type_path, class: "button radius expand small" %>
+  </div>
+</div>
+
+<div class="row">
+  <table style="margin: 30px auto 0 auto;">
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+
+  <% @session_types.each do |session_type| %>
+    <tr>
+      <td style="width: 300px; text-align:center"><%= session_type.name %></td>
+      <td style="width: 200px; text-align:center">
+        <%= link_to 'Edit', edit_session_type_path(session_type), class: "tiny button radius secondary", style:"margin: 5px 0;" %>
+        <%= link_to 'Destroy', session_type, method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny button radius alert", style:"margin: 0;" %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>

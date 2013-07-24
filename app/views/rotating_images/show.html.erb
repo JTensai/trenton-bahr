@@ -1,0 +1,23 @@
+<p>
+  <b>Image:</b>
+  <%= @rotating_image.image %>
+</p>
+
+<p>
+  <b>Live:</b>
+  <%= @rotating_image.live %>
+</p>
+
+<p>
+  <b>Sort order:</b>
+  <%= @rotating_image.sort_order %>
+</p>
+
+<p>
+  <b>Rotation time:</b>
+  <%= @rotating_image.rotation_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_rotating_image_path(@rotating_image) %> |
+<%= link_to 'Back', rotating_images_path %>

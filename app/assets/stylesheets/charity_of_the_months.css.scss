@@ -1,0 +1,24 @@
+
+.event_box{
+	background-color: #FAF1E1;
+	box-shadow: 0 0 12px #777;
+	border: solid 1px #999; 
+	border-radius: 10px; 
+	text-align:justify; 
+	color: #222;
+}
+
+.link_event_box{
+	background-color: #FAF1E1;
+	box-shadow: 0 0 12px #777;
+	border: solid 1px #999; 
+	border-radius: 10px; 
+	cursor:pointer; 
+	text-align:justify; 
+	color: #222;
+}
+
+.link_event_box:hover{
+	box-shadow: 0 0 20px #222; 
+	background-color: #EDE2CE;
+}

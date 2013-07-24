@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  live: false
+  testimonial: MyString
+  category: MyString
+  firstname: MyString
+
+two:
+  live: false
+  testimonial: MyString
+  category: MyString
+  firstname: MyString

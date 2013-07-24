@@ -1,0 +1,114 @@
+<div class="large-11 large-centered columns" style="margin-top: 50px;">
+  <%= form_for @contact_form, html: {:class => "custom"} do |f| %>
+    <% if @contact_form.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@contact_form.errors.count, "error") %> prohibited this contact_form from being saved:</h2>
+
+        <ul>
+        <% @contact_form.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="large-2 columns">
+        <%= f.label :request_type %>
+      </div>
+      <div class="large-9 columns">
+        <%= f.text_field :request_type %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-2 columns">
+        <%= f.label :name %>
+      </div>
+      <div class="large-9 columns">
+        <%= f.text_field :name %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-2 columns">
+        <%= f.label :phone_number %>
+      </div>
+      <div class="large-9 columns">
+        <%= f.text_field :phone_number %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-2 columns">
+        <%= f.label :email %>
+      </div>
+      <div class="large-9 columns">
+        <%= f.text_field :email %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-2 columns">
+        <%= f.label :comments %>
+      </div>
+      <div class="large-9 columns">
+        <%= f.text_area :comments %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-2 columns">
+        <%= f.label :contact_time %>
+      </div>
+      <div class="large-9 columns">
+        <%= f.text_field :contact_time %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-2 columns">
+        <%= f.label :preferred_time %>
+      </div>
+      <div class="large-9 columns">
+        <%= f.time_select :preferred_time %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-2 columns">
+        <%= f.label :preferred_day %>
+      </div>
+      <div class="large-9 columns">
+        <%= f.text_field :preferred_day %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-2 columns">
+        <%= f.label :preferred_date %>
+      </div>
+      <div class="large-9 columns">
+        <%= f.date_select :preferred_date %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-2 columns">
+        <%= f.label :session_type_id %>
+      </div>
+      <div class="large-9 columns">
+        <%= f.collection_select :session_type_id, SessionType.all, :id, :name, :prompt => "Select a Session Type" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="large-2 columns">
+        <%= f.label :auction_type %>
+      </div>
+      <div class="large-9 columns">
+        <%= f.text_field :auction_type %>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 65px;">
+      <div class="large-4 large-centered columns"> 
+        <div class="large-5 columns left">   
+          <%= link_to 'Cancel', :back, class: "button radius expand alert" %>
+        </div>
+        <div class="large-5 columns right">      
+          <%= f.submit "Submit", class: "button radius expand" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

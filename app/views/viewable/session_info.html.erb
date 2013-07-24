@@ -1,0 +1,31 @@
+<div class="large-12 columns">
+
+	<div class="row">
+		<div class="large-9 columns">
+			<div class="row" style="text-align:center; padding: 15px;">
+				<iframe width="420" height="315" src="//www.youtube.com/embed/FRg8-Oj1_5c" style="border: solid #222 2px; box-shadow: 0 0 15px; #333" frameborder="0" allowfullscreen></iframe>
+			</div>
+			<div class="row" style="padding: 15px;" style="border: 1px #444 solid;">
+				<h3>What to Expect</h3>
+				<p style="text-align:justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque, arcu eget pharetra porttitor, purus dui tristique velit, in lobortis libero nibh quis nisl. Cras gravida ipsum eget est sodales, non tristique tortor pellentesque. Nulla tellus sem, rutrum et placerat eget, congue id ipsum.</p>
+
+				<h5>Subheader</h5>
+				<p style="text-align:justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque, arcu eget pharetra porttitor, purus dui tristique velit, in lobortis libero nibh quis nisl. Cras gravida ipsum eget est sodales, non tristique tortor pellentesque. Nulla tellus sem, rutrum et placerat eget, congue id ipsum.</p>
+
+				<h5>Subheader</h5>
+				<p style="text-align:justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque, arcu eget pharetra porttitor, purus dui tristique velit, in lobortis libero nibh quis nisl. Cras gravida ipsum eget est sodales, non tristique tortor pellentesque. Nulla tellus sem, rutrum et placerat eget, congue id ipsum.</p>
+
+			</div>
+		</div>
+		<div class="large-3 columns" style="border: 1px #444 solid">
+			<h5 style="text-align:center">Downloads</h5>
+			<% @downloads.each do |d| %>
+				<div class="large-10 columns large-centered" style="margin-top: 15px;">
+					<%= link_to d.name, { action: "download", name: d.name }, class: "button small secondary radius expand" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+
+
+</div>

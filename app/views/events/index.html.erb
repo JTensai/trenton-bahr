@@ -1,0 +1,35 @@
+<br><br><h3 style="text-align:center;">Listing All Events</h3>
+
+<div class="row">
+  <div class="large-3 large-centered columns">
+      <%= link_to 'New Event', new_event_path, class: "button radius expand small" %>
+  </div>
+</div>
+
+<div class="row">
+  <table style="margin: 30px auto 0 auto;">
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Address</th>
+      <th>Actions</th>
+    </tr>
+
+  <% @events.each do |event| %>
+    <tr>
+      <td style="width: 140px;text-align:center"><b><%= link_to event.name, event, class: "button radius small expand", style: "padding: 7px;" %></b></td>
+      <td style="width: 300px;"><%= event.description %></td>
+      <td style="width: 95px; text-align:center"><%= event.date.strftime("%b %e, %Y") %></td>
+      <td style="width: 80px; text-align:center"><%= event.time.strftime("%l:%M %p") %></td>
+      <td style="width: 200px; text-align:center"><% unless event.street == "" || event.city == "" %>
+      <%= event.street %><br> <%= event.city %>, <%= event.state %> <%= event.zip_code %><% end %></td>
+      <td style="width: 118px; text-align:center">
+        <%= link_to 'Edit', edit_event_path(event), class: "tiny button radius secondary", style:"margin: 5px 0;" %>
+        <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny button radius alert", style:"margin: 0;" %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>

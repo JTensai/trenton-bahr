@@ -1,0 +1,13 @@
+.gallery_image{
+	// 
+	// border: solid blue 4px;
+	box-shadow: 0 0 5px #000; 
+	margin: 0;
+	&:hover{
+		box-shadow: 0 0 15px #000;
+	}
+}
+
+.large-block-grid-5 { padding: 0; }
+
+.visible-img img{ padding: 40px 0px 30px 0px;}

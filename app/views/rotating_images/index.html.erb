@@ -1,0 +1,35 @@
+<br><br><h3 style="text-align:center;">Listing Rotating Images</h3>
+
+<div class="row">
+  <div class="large-3 large-centered columns">
+      <%= link_to 'New Rotating Image', new_rotating_image_path, class: "button radius expand small" %>
+  </div>
+</div>
+
+<h5 style="text-align:center">This won't be a table, it will have previews of each image, and show what order it is in.</h6>
+
+<div class="row">
+  <table style="margin: 30px auto 0 auto;">
+    <tr>
+      <th>Image</th>
+      <th>Live</th>
+      <th>Sort order</th>
+      <th>Rotation time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+
+  <% @rotating_images.each do |rotating_image| %>
+    <tr>
+      <td><%= rotating_image.image %></td>
+      <td><%= rotating_image.live %></td>
+      <td><%= rotating_image.sort_order %></td>
+      <td><%= rotating_image.rotation_time %></td>
+      <td><%= link_to 'Show', rotating_image %></td>
+      <td><%= link_to 'Edit', edit_rotating_image_path(rotating_image) %></td>
+      <td><%= link_to 'Destroy', rotating_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  image: MyString
+  live: false
+  sort_order: 1
+  rotation_time: 1
+
+two:
+  image: MyString
+  live: false
+  sort_order: 1
+  rotation_time: 1

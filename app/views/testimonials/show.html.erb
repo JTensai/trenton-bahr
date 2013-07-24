@@ -1,0 +1,23 @@
+<p>
+  <b>Live:</b>
+  <%= @testimonial.live %>
+</p>
+
+<p>
+  <b>Testimonial:</b>
+  <%= @testimonial.testimonial %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @testimonial.category %>
+</p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @testimonial.firstname %>
+</p>
+
+
+<%= link_to 'Edit', edit_testimonial_path(@testimonial) %> |
+<%= link_to 'Back', testimonials_path %>

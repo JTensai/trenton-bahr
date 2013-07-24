@@ -1,0 +1,63 @@
+<p>
+  <b>Request type:</b>
+  <%= @contact_form.request_type %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @contact_form.name %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%= @contact_form.phone_number %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @contact_form.address %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @contact_form.email %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @contact_form.comments %>
+</p>
+
+<p>
+  <b>Contact time:</b>
+  <%= @contact_form.contact_time %>
+</p>
+
+<p>
+  <b>Preferred time:</b>
+  <%= @contact_form.preferred_time %>
+</p>
+
+<p>
+  <b>Preferred day:</b>
+  <%= @contact_form.preferred_day %>
+</p>
+
+<p>
+  <b>Preferred date:</b>
+  <%= @contact_form.preferred_date %>
+</p>
+
+<p>
+  <b>Session type:</b>
+  <%= @contact_form.session_type %>
+</p>
+
+<p>
+  <b>Auction type:</b>
+  <%= @contact_form.auction_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_contact_form_path(@contact_form) %> |
+<%= link_to 'Back', contact_forms_path %>

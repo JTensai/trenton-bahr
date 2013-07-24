@@ -1,0 +1,35 @@
+<div style="margin-top: 80px;"></div>
+  <a class="event" href=<%= @event.link_url.to_s %>>
+    <div class="large-6 large-centered columns">
+      <div class="large-11 columns large-centered event_box" style="border: solid 1px #999; border-radius: 10px; padding: 10px; cursor:pointer; text-align:justify; color: #222;">
+        <div class="row">
+          <div class="large-12 columns"><h4 style="text-align:center; margin:-5px 0 2px 0;"><%= @event.name %></h4></div>
+        </div>
+        <div class="row" style="margin-bottom: 8px;">
+          <div class="large-6 columns" style="text-align:center"><b>Date: </b><%= @event.date.strftime("%B %e, %Y") %></div>
+          <div class="large-6 columns" style="text-align:center"><b>Time: </b><%= @event.time.strftime("%l:%M %p") %></div>
+        </div>
+        <% unless @event.description == "" %>
+          <div class="row" style="margin-bottom: 8px;">
+            <div class="large-12 columns"><p style="margin-bottom: 5px; font-style: italic"><%= @event.description %></p></div>
+          </div>
+        <% end %>
+        <% unless @event.street == "" || @event.city == "" %>
+          <div class="row">
+            <div class="large-12 columns"><p style="margin-bottom: 5px;"><%= @event.street %><br><%= @event.city %>, <%= @event.state %> <%= @event.zip_code %></p></div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </a>
+
+  <div class="row" style="margin-top: 25px;">
+    <div class="large-4 large-centered columns"> 
+      <div class="large-5 columns left">   
+        <%= link_to 'Back', events_path, class: "button radius expand secondary" %>
+      </div>
+      <div class="large-5 columns right">      
+        <%= link_to "Edit", edit_event_path(@event), class: "button radius expand" %>
+      </div>
+    </div>
+  </div>

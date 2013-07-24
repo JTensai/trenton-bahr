@@ -1,0 +1,50 @@
+<br><br><h3 style="text-align:center;">Listing Contact Forms</h3>
+
+<div class="row">
+  <div class="large-3 large-centered columns">
+      <%= link_to 'New Contact Form', new_contact_form_path, class: "button radius expand small" %>
+  </div>
+</div>
+
+<div class="row">
+    <table style="margin: 30px auto 0 auto;">
+      <tr>
+        <th>Request type</th>
+        <th>Name</th>
+        <th>Phone number</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Comments</th>
+        <th>Contact time</th>
+        <th>Preferred time</th>
+        <th>Preferred day</th>
+        <th>Preferred date</th>
+        <th>Session type</th>
+        <th>Auction type</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @contact_forms.each do |contact_form| %>
+      <tr>
+        <td><%= contact_form.request_type %></td>
+        <td><%= contact_form.name %></td>
+        <td><%= contact_form.phone_number %></td>
+        <td><%= contact_form.address %></td>
+        <td><%= contact_form.email %></td>
+        <td><%= contact_form.comments %></td>
+        <td><%= contact_form.contact_time %></td>
+        <td><%= contact_form.preferred_time %></td>
+        <td><%= contact_form.preferred_day %></td>
+        <td><%= contact_form.preferred_date %></td>
+        <td><%= contact_form.session_type %></td>
+        <td><%= contact_form.auction_type %></td>
+        <td>
+            <%= link_to 'Edit', edit_contact_path(contact), class: "tiny button radius secondary", style:"margin: 5px 0;" %>
+            <%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny button radius alert", style:"margin: 0;" %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+</div>

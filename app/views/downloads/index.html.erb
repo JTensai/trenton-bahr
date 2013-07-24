@@ -1,0 +1,35 @@
+<br><br><h3 style="text-align:center;">Listing All Downloads</h3>
+
+<div class="row">
+  <div class="large-3 large-centered columns">
+      <%= link_to 'New Download', new_download_path, class: "button radius expand small" %>
+  </div>
+</div>
+
+<div class="row">
+  <table style="margin: 30px auto 0 auto;">
+    <tr>
+      <th>Order</th>
+      <th>Name</th>
+      <th>File</th>
+      <th>Actions</th>
+    </tr>
+
+    <% @downloads.each do |download| %>
+      <tr>
+        <td style="width: 43px;text-align:center"><b><%= download.sort_order %></b></td>
+        <td style="width: 200px;text-align:center"><b><%= download.name %></b></td>
+        <td style="width: 600px;"><%= File.basename(download.file.to_s) %></td>
+        <td style="width: 118px; text-align:center;">
+          <%= link_to 'Edit', edit_download_path(download), class: "tiny button radius secondary", style:"margin: 5px 0;" %>
+          <%= link_to 'Destroy', download, method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny button radius alert", style:"margin: 0;" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+<div class="row" style="margin-top: 40px;">
+  <div class="large-11 large-centered columns">   
+    <p>On the Home page there are 2 buttons on either side of the "Request Session" button. These two buttons can be linked to different files. The files that they are linked to are chosen here by assigning a <b>Sort Order</b> to each download. <br>The <b>Left Button</b> is chosen by giving a download a <b>Sort Order of "1"</b>. <br>The <b>Right Button</b> is chosen by giving a download a <b>Sort Order of "2"</b>.<br> All downloads, including the first two, will be displayed on the left side of the Session Info page to be downloaded.</p>
+  </div>
+</div>
