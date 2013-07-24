@@ -23,7 +23,7 @@
   <body style="background-color: #FAF0DE;">
      <!-- style="background-image: url(/assets/structure/drop_shadow.png); background-repeat: repeat-x; height: 10px; background-size: 5px; margin-top: 40px; background-color: transparent;" -->
     <div class="contain-to-grid">
-      <nav class="top-bar" style="box-shadow: 0 0 10px #2B1903">
+      <nav class="top-bar">
         <ul class="title-area">
           <li class="name"><h1 style="margin-top: 2px;"><%= link_to "Trenton Bahr", home_path %></a></h1></li>
         </ul>
@@ -42,6 +42,19 @@
       </nav>      
     </div>
 
+    <div class="row">
+    <div class="large-11 columns large-centered">
+        <ul class="menu_button_group round even-3">
+          <li><%= link_to "Home", home_path, class: "menu_button" %></li>
+          <li><%= link_to "About Us", about_path, class: "menu_button" %></li>
+          <li><%= link_to "Charities", charities_path, class: "menu_button" %></li>
+          <li><%= link_to "Gallery", {:controller => "viewable", :action => "gallery", :category => "Families"}, class: "menu_button" %></li>
+          <li><%= link_to "Session Info", session_info_path, class: "menu_button" %></li>
+          <li><%= link_to "Contact", contact_path, class: "menu_button" %></li>
+        </ul>
+      </div>
+    </div>
+
     <% unless notice == nil %>
       <div class="row" id="flash_container">
         <div data-alert id="succes_alert" class="large-12 large-centered columns alert-box success radius" style="padding: 8px; margin: 10px auto; text-align:center;">
@@ -52,16 +65,7 @@
     <% end %>
 
     <div id="page" class="row">
-      <div class="large-10 columns large-centered">
-        <ul class="menu_button_group round even-3">
-          <li><%= link_to "Home", home_path, class: "menu_button" %></li>
-          <li><%= link_to "About Us", about_path, class: "menu_button" %></li>
-          <li><%= link_to "Charities", charities_path, class: "menu_button" %></li>
-          <li><%= link_to "Gallery", {:controller => "viewable", :action => "gallery", :category => "Families"}, class: "menu_button" %></li>
-          <li><%= link_to "Session Info", session_info_path, class: "menu_button" %></li>
-          <li><%= link_to "Contact", contact_path, class: "menu_button" %></li>
-        </ul>
-      </div>
+      
       <div class="row" style="margin-top: -10px;">
         <%= yield %>
       </div>

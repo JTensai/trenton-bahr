@@ -34,7 +34,7 @@
         <%= f.label :category, "Category: ", class: "inline right", style: "margin-right: 20px;" %>
       </div>
       <div class="large-6 columns left">
-        <%= f.select :category, [['Seniors', "senior"], ['Families', 'family'], ['Others','other']], { :prompt => "Select a Category" }, { id: "customDropdown" } %>
+        <%= f.select :category, ['Seniors', 'Families', 'Others'], { :prompt => "Select a Category" }, { id: "customDropdown" } %>
       </div> 
     </div>
     <div class="row">

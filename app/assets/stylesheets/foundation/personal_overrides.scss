@@ -1,7 +1,7 @@
 @import "foundation/variables", "foundation/components/global", "foundation/components/buttons", "foundation/components/button-groups";
 
 .menu_button_group{	@include button-group-container; 
-	$number_of_buttons: 6;
+	$number_of_buttons: 7;
 	$padding: $button-sml;
 	$radius: false;
 	$full-width: true;
