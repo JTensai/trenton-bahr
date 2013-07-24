@@ -1,9 +1,9 @@
 class ViewableController < ApplicationController
 
 	def home
-		@seniors = Testimonial.where(live: true).where(category: "Senior").sample(n=1)
-		@families = Testimonial.where(live: true).where(category: "Family").sample(n=1)
-		@others = Testimonial.where(live: true).where(category: "Other").sample(n=1)		
+		@seniors = Testimonial.where(live: true).where(category: "Seniors").sample(n=1)
+		@families = Testimonial.where(live: true).where(category: "Families").sample(n=1)
+		@others = Testimonial.where(live: true).where(category: "Others").sample(n=1)		
     	@downloads = Download.all(order: 'name')
 	end
 
