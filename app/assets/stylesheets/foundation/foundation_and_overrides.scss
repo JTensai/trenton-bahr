@@ -800,7 +800,7 @@ $clearing-carousel-thumb-width: auto;
 // Timer styles
 
 // $orbit-timer-bg-old: rgb(0,0,0);
-// $orbit-timer-bg: rgba(0,0,0,0.6);
+$orbit-timer-bg: rgba(0,0,0,0.2);
 
 // Bullet nav styles
 
@@ -810,7 +810,7 @@ $clearing-carousel-thumb-width: auto;
 // Slide numbers
 
 // $orbit-slide-number-bg: rgba(0,0,0,0);
-// $orbit-slide-number-font-color: #fff;
+$orbit-slide-number-font-color: rgba(0,0,0,0.3);
 // $orbit-slide-number-padding: emCalc(5px);
 
 // Graceful Loading Wrapper and preloader

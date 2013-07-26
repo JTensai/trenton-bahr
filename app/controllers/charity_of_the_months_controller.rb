@@ -22,8 +22,8 @@ class CharityOfTheMonthsController < ApplicationController
     @charity = CharityOfTheMonth.new(params[:charity_of_the_month])
 
     respond_to do |format|
-      if @charity_of_the_month.save
-        format.html { redirect_to charities_path, notice: 'Charity of the Month was successfully created.' }
+      if @charity.save
+        format.html { redirect_to charities_path, notice: 'Charity of the Month was successfully set up!' }
         format.json { render json: @charity, status: :created, location: @charity }
       else
         format.html { render action: "new" }

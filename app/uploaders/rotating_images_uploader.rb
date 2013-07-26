@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class RotationImagesUploader < CarrierWave::Uploader::Base
+class RotatingImagesUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

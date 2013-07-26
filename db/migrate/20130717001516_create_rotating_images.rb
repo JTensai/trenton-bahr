@@ -4,7 +4,6 @@ class CreateRotatingImages < ActiveRecord::Migration
       t.string :image
       t.boolean :live
       t.integer :sort_order
-      t.integer :rotation_time
 
       t.timestamps
     end

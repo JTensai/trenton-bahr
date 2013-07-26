@@ -1,0 +1,76 @@
+<div class="large-12 columns">
+
+	<div class="row" style="margin-top: 40px;">
+		<div class="large-10 columns large-centered" style="border:solid #777 2px; padding: 10px 15px; box-shadow: 0 0 15px #888;">
+			<h3 style="text-align:center; margin:0 0 10px 0">Upcomming Events</h3>
+			<div class="row">
+				<% @events.each do |e| %>
+					<% if e.link_url == "" %>
+
+					    <div class="large-6 columns" style="margin-bottom: 20px;">
+					      <div data-tooltip class="large-11 columns large-centered event_box tip-top" title="No Link Given" style="padding: 10px;">
+					        <div class="row">
+					          <div class="large-12 columns"><h4 style="text-align:center; margin:-5px 0 2px 0;"><%= e.name %></h4></div>
+					        </div>
+					        <div class="row" style="margin-bottom: 8px;">
+					          <div class="large-6 columns" style="text-align:center"><b>Date: </b><%= e.date.strftime("%B %e, %Y") %></div>
+					          <div class="large-6 columns" style="text-align:center"><b>Time: </b><%= e.time.strftime("%l:%M %p") %></div>
+					        </div>
+					        <% unless e.description == "" %>
+					          <div class="row" style="margin-bottom: 5px;">
+					            <div class="large-12 columns"><p style="margin-bottom: 5px; font-style: italic"><%= e.description %></p></div>
+					          </div>
+					        <% end %>
+					        <% unless e.street == "" || e.city == "" %>
+					          <div class="row">
+					            <div class="large-12 columns"><p style="margin-bottom: 5px;"><%= e.street %><br><%= e.city %>, <%= e.state %> <%= e.zip_code %></p></div>
+					          </div>
+					        <% end %>
+					      </div>
+					    </div>
+
+					<% else %>
+					  <a class="event" href=<%= e.link_url.to_s %>>
+					    <div class="large-6 columns" style="margin-bottom: 20px;">
+					      <div data-tooltip class="large-11 columns large-centered event_box tip-top" title="Link: <%= e.link_url %>" style="padding: 10px;">
+					        <div class="row">
+					          <div class="large-12 columns"><h4 style="text-align:center; margin:-5px 0 2px 0;"><%= e.name %></h4></div>
+					        </div>
+					        <div class="row" style="margin-bottom: 8px;">
+					          <div class="large-6 columns" style="text-align:center"><b>Date: </b><%= e.date.strftime("%B %e, %Y") %></div>
+					          <div class="large-6 columns" style="text-align:center"><b>Time: </b><%= e.time.strftime("%l:%M %p") %></div>
+					        </div>
+					        <% unless e.description == "" %>
+					          <div class="row" style="margin-bottom: 5px;">
+					            <div class="large-12 columns"><p style="margin-bottom: 5px; font-style: italic"><%= e.description %></p></div>
+					          </div>
+					        <% end %>
+					        <% unless e.street == "" || e.city == "" %>
+					          <div class="row">
+					            <div class="large-12 columns"><p style="margin-bottom: 5px;"><%= e.street %><br><%= e.city %>, <%= e.state %> <%= e.zip_code %></p></div>
+					          </div>
+					        <% end %>
+					      </div>
+					    </div>
+					  </a>
+
+
+
+
+
+					<% end %>
+				<% end %>
+			</div>
+			<div class="row", style="margin-top: 30px;">
+		      <div class="large-7 large-centered columns"> 
+		        <div class="large-5 columns left">   
+		          <%= link_to 'Edit Events', events_path, class: "button radius expand alert" %>
+		        </div>
+		        <div class="large-5 columns right">      
+		          <%= link_to "New Event", new_event_path, class: "button radius expand" %>
+		        </div>
+		      </div>
+			</div>
+		</div>
+	</div>
+</div>

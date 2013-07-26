@@ -14,10 +14,10 @@
 
     <div class="row">
       <div class="large-2 columns">
-        <%= f.label :image, "Image: ", class: "inline right", style: "margin-right: 20px;" %>
+        <%= f.label :image, "Image: ", class: "right", style: "margin-right: 20px; margin-top: 3px;" %>
       </div>
       <div class="large-9 columns left">
-        <%= f.text_field :image %>
+        <%= f.file_field :image %>
       </div>
     </div>
 
@@ -27,13 +27,6 @@
       </div>
       <div class="large-2 columns left" style="margin-right:30px;">
         <%= f.number_field :sort_order %>
-      </div>
-
-      <div class="large-2 columns">
-        <%= f.label :rotation_time, "Rotation Time: ", class: "inline right", style: "margin-right: 20px;" %>
-      </div>
-      <div class="large-2 columns left">
-        <%= f.number_field :rotation_time %>
       </div>
 
       <div class="large-2 columns" style="margin-right: 15px;">

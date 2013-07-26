@@ -1,0 +1,29 @@
+<br><br><h3 style="text-align:center;">Listing Charities</h3>
+
+<div class="row">
+  <div class="large-3 large-centered columns">
+      <%= link_to 'New Charity', new_our_charity_path, class: "button radius expand small" %>
+  </div>
+</div>
+
+<div class="row">
+  <table style="margin: 30px auto 0 auto;">
+    <tr>
+      <th>Name</th>
+      <th>Sort Order</th>
+      <th>Actions</th>
+    </tr>
+
+  <% @our_charities.each do |charity| %>
+    <tr>
+      <td style="text-align: center"><%= charity.name %></td>
+      <td style="text-align: center"><%= charity.sort_order %></td>
+        <td style="width: 167px; text-align:center">
+          <%= link_to "Show", charity, class: "button radius tiny", style:"margin: 0;" %>
+          <%= link_to 'Edit', edit_our_charity_path(charity), class: "tiny button radius secondary", style:"margin: 5px 0;" %>
+          <%= link_to 'Destroy', charity, method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny button radius alert", style:"margin: 0;" %>
+        </td>
+    </tr>
+  <% end %>
+  </table>
+</div>

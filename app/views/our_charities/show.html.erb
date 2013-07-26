@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%= @our_charity.name %>
+</p>
+
+<p>
+  <b>Sort order:</b>
+  <%= @our_charity.sort_order %>
+</p>
+
+
+<%= link_to 'Edit', edit_our_charity_path(@our_charity) %> |
+<%= link_to 'Back', our_charities_path %>

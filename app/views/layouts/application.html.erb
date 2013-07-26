@@ -21,37 +21,31 @@
   </head>
 
   <body style="background-color: #FAF0DE;">
-     <!-- style="background-image: url(/assets/structure/drop_shadow.png); background-repeat: repeat-x; height: 10px; background-size: 5px; margin-top: 40px; background-color: transparent;" -->
-    <div class="contain-to-grid">
-      <nav class="top-bar">
-        <ul class="title-area">
-          <li class="name"><h1 style="margin-top: 2px;"><%= link_to "Trenton Bahr", home_path %></a></h1></li>
-        </ul>
-        <section class="top-bar-section">
-          <ul class="right">
-            <li class="has-form" style="color: white; padding-top: 10px; font-size: 13px;">Facebook</li>
-            <li class="has-form" style="color: white; padding-top: 10px; font-size: 13px;">Twitter</li>
-            <li class="has-form" style="color: white; padding-top: 10px; font-size: 13px;">Youtube</li>  
-            <li class="divider"></li>
-            <li class="has-form" style="color: white; padding-top: 10px; font-size: 13px;">(916)-797-1002</li>    
-            <li class="divider"></li>
-            <li class="has-form" style="color: white; padding-top: 3px; font-size: 12px;">4880 Douglas Blvd<br>Granite Bay CA 95746</li>        
-            <li class="divider"></li>
-          </ul>
+    <div id="header" class="row">
+      <div class="row">
+        <div class="large-4 columns" style="height:100px;">
+          <h1 style="margin-top: 2px; font-size: 30px;"><%= link_to "Trenton Bahr", home_path, style: "color: #333" %></a></h1>
         </div>
-      </nav>      
-    </div>
+        <div class="large-3 columns right" style="padding: 5px; text-align:right; line-height: 25px;">4880 Douglas Blvd<br>Granite Bay CA 95746
+        </div>
+        <div class="large-3 columns right" style="padding: 5px; text-align:right; line-height: 25px; font-size: 25px;">(916)-797-1002
+        </div>
+      </div>
+      
 
-    <div class="row">
-    <div class="large-11 columns large-centered">
-        <ul class="menu_button_group round even-3">
-          <li><%= link_to "Home", home_path, class: "menu_button" %></li>
-          <li><%= link_to "About Us", about_path, class: "menu_button" %></li>
-          <li><%= link_to "Charities", charities_path, class: "menu_button" %></li>
-          <li><%= link_to "Gallery", {:controller => "viewable", :action => "gallery", :category => "Families"}, class: "menu_button" %></li>
-          <li><%= link_to "Session Info", session_info_path, class: "menu_button" %></li>
-          <li><%= link_to "Contact", contact_path, class: "menu_button" %></li>
-        </ul>
+      <div class="row">
+        <div class="large-12 columns large-centered">
+          <div class="large-10 columns large-centered">
+            <ul class="menu_button_group round">
+              <li style="height: 28px;"><%= link_to "Home", home_path, class: "menu_button" %></li>
+              <li><%= link_to "Session Info", session_information_path, class: "menu_button" %></li>
+              <li><%= link_to "Gallery", { controller: "viewable", action: "gallery", category: "Families" }, class: "menu_button" %></li>
+              <li><%= link_to "About Us", about_path, class: "menu_button" %></li>
+              <li><%= link_to "Contact", contact_path, class: "menu_button" %></li>
+              <li><%= link_to "Charities", charities_path, class: "menu_button" %></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -64,9 +58,8 @@
       </div>
     <% end %>
 
-    <div id="page" class="row">
-      
-      <div class="row" style="margin-top: -10px;">
+    <div id="page" class="row">      
+      <div class="row">
         <%= yield %>
       </div>
 

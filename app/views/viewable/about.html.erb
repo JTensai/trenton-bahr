@@ -1,6 +1,5 @@
 <style>
 	p{
-		text-indent: 35px;
 		text-align: justify;
 		margin-bottom: 9px;
 	}
@@ -23,18 +22,27 @@
 <div class="large-12 columns">
 
 	<div class="row">
-		<div class="large-4 columns" style="min-height: 350px; padding: 10px;">
-			<%= image_tag("/assets/placeholder-small.jpg", style: "box-shadow: 0 0 10px #333;") %>
+		<div class="large-4 columns" style="min-height: 350px; padding: 10px 30px 10px 10px;">			
+			<% if @trenton == nil %>
+				<%= image_tag("http://placehold.it/283x350&text=placeholder", style: "box-shadow: 0 0 10px #333;") %>
+			<% elsif @trenton.image.url == nil %>
+				<%= image_tag("http://placehold.it/283x350&text=placeholder", style: "box-shadow: 0 0 10px #333;") %>
+			<% else %>
+				<%= image_tag(@trenton.image.url, style: "box-shadow: 0 0 10px #333;") %>
+			<% end %>
 		</div>
 		<div class="large-8 columns" style="min-height: 350px; padding: 10px;">
 			<div id="video_wrapper">
-				<% if @trentons == nil %>
+				<% if @trenton == nil %>
 					<div style="box-shadow: 0 0 10px #333; width: 100%; height: 350px">
-						<div style="width: 100%; height: 350px; background-image: url(/assets/placeholder.jpg); background-repeat: no-repeat; background-position: center; background-size: 100%">
-						</div>
+						<%= image_tag("http://placehold.it/626x350&text=Video+Placeholder") %>
+					</div>
+				<% elsif @trenton.video_link == "" %>
+					<div style="box-shadow: 0 0 10px #333; width: 100%; height: 350px">
+						<%= image_tag("http://placehold.it/626x350&text=Video+Placeholder") %>
 					</div>
 				<% else %>
-        			<iframe style="box-shadow: 0 0 10px #333;" width="100%" height="350px" src=<%= @trentons.video_link %> frameborder="0" allowfullscreen></iframe>
+        			<iframe style="box-shadow: 0 0 10px #333;" width="100%" height="350px" src=<%= @trenton.video_link %> frameborder="0" allowfullscreen></iframe>
         		<% end %>
         	</div>
 		</div>
@@ -43,20 +51,20 @@
 	<div class="row" style="margin-top: 5px;">
 		<div class="large-12 columns large-centered" style="padding: 0 20px;">
 			<h3 style="margin-bottom: 10px;">Meet the Artist</h3>
-			<% if @trentons == nil %>
+			<% if @trenton == nil %>
 				<p><b>This is where the text goes.</b><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque, arcu eget pharetra porttitor, purus dui tristique velit, in lobortis libero nibh quis nisl. Cras gravida ipsum eget est sodales, non tristique tortor pellentesque. Nulla tellus sem, rutrum et placerat eget, congue id ipsum.</p>
 			<% else %>
-				<%= render :inline => @trentons.meet_the_artist_text %>
+				<%= render :inline => @trenton.meet_the_artist_text %>
 			<% end %>
 		</div>
 	</div>
 
 	<div class="row" style="margin-top: 45px;">
 		<div class="large-3 large-centered columns">
-			<% if @trentons == nil %>
+			<% if @trenton == nil %>
 				<%= link_to 'Set Up Page', new_trenton_path, class: "button radius expand" %>
 			<% else %>
-				<%= link_to 'Edit Page', edit_trenton_path(@trentons), class: "button radius expand" %>
+				<%= link_to 'Edit Page', edit_trenton_path(@trenton), class: "button radius expand" %>
 			<% end %>
 		</div>
 	</div>

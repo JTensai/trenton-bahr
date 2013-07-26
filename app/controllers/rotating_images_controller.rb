@@ -2,6 +2,7 @@ class RotatingImagesController < ApplicationController
   # GET /rotating_images
   # GET /rotating_images.json
   def index
+    @live_images = RotatingImage.where(live: true).all(order: "sort_order")
     @rotating_images = RotatingImage.all
 
     respond_to do |format|

@@ -1,11 +1,10 @@
 @import "foundation/variables", "foundation/components/global", "foundation/components/buttons", "foundation/components/button-groups";
 
 .menu_button_group{	@include button-group-container; 
-	$number_of_buttons: 7;
+	$number_of_buttons: 6;
 	$padding: $button-sml;
 	$radius: false;
 	$full-width: true;
-	$active: true;
 
 	$button-font-color: #444; // will only change color if the background is dark
 	$button-border-width: 0px;
@@ -15,7 +14,6 @@
 		@include button-base();
 		@include button-size($padding, $full-width);
 		@include button-style($button-color, $button-font-color);
-		@include inset-shadow($active);
     	@include single-transition;
 	}
 	& > li { @include button-group-style($radius, $number_of_buttons); }
@@ -31,3 +29,4 @@ $red: red;
     	font-weight:bold;
     }
 }
+

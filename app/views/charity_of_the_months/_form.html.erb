@@ -1,6 +1,6 @@
 <div class="large-12 columns">
 
-  <%= form_for(@charity) do |f| %>
+  <%= form_for @charity, html: {:class => "custom"} do |f| %>
     <% if @charity.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@charity.errors.count, "error") %> prohibited this Charity of the Month from being saved:</h2>
@@ -14,10 +14,11 @@
     <% end %>
 
   <div class="row">
-    <div class="large-11 large-centered columns" style="box-shadow: 0 0 20px #444">
-        <!--<div style="width: 100%; height: 250px; background-image: url(/assets/placeholder.jpg); background-repeat: no-repeat; background-position: center; background-size: 100%">-->
-      <% unless @charity.header_image != "" || @charity.header_image != nil %>
-        <%= image_tag(@charity.header_image.to_s) %>
+    <div class="large-11 large-centered columns" style="text-align:center;">
+      <% if @charity.header_image.url == nil %>
+        <%= image_tag("http://placehold.it/887x250&text=Placeholder", style: "box-shadow: 0 0 20px #444") %>
+      <% else %>
+        <%= image_tag(@charity.header_image.to_s, style: "box-shadow: 0 0 20px #444") %>
       <% end %>
     </div>
   </div>

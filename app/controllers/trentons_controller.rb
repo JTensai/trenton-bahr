@@ -24,7 +24,7 @@ class TrentonsController < ApplicationController
 
     respond_to do |format|
       if @trenton.save
-        format.html { redirect_to @trenton, notice: 'Trenton was successfully created.' }
+        format.html { redirect_to about_path, notice: 'Page successfully set up!' }
         format.json { render json: @trenton, status: :created, location: @trenton }
       else
         format.html { render action: "new" }
@@ -40,7 +40,7 @@ class TrentonsController < ApplicationController
 
     respond_to do |format|
       if @trenton.update_attributes(params[:trenton])
-        format.html { redirect_to about_path, notice: 'Trenton was successfully updated.' }
+        format.html { redirect_to about_path, notice: 'Page was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

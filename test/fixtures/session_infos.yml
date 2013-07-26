@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  video_link: MyString
+  what_to_expect: MyText
+
+two:
+  video_link: MyString
+  what_to_expect: MyText

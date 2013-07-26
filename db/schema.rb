@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130724081749) do
+ActiveRecord::Schema.define(:version => 20130726092306) do
 
   create_table "charity_of_the_months", :force => true do |t|
     t.string   "header_image"
@@ -71,6 +71,13 @@ ActiveRecord::Schema.define(:version => 20130724081749) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "our_charities", :force => true do |t|
+    t.string   "name"
+    t.integer  "sort_order"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "rotating_images", :force => true do |t|
     t.string   "image"
     t.boolean  "live"
@@ -78,6 +85,13 @@ ActiveRecord::Schema.define(:version => 20130724081749) do
     t.integer  "rotation_time"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "session_infos", :force => true do |t|
+    t.string   "video_link"
+    t.text     "what_to_expect"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "session_types", :force => true do |t|

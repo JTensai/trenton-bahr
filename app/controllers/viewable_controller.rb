@@ -5,29 +5,24 @@ class ViewableController < ApplicationController
 		@families = Testimonial.where(live: true).where(category: "Families").sample(n=1)
 		@others = Testimonial.where(live: true).where(category: "Others").sample(n=1)		
     	@downloads = Download.all(order: 'name')
+    	@rotating_images = RotatingImage.where(live: true).all(order: "sort_order")
 	end
 
 	def about		
-    	@trentons = Trenton.first
+    	@trenton = Trenton.first
     end
 
     def charities
 	    @charity = CharityOfTheMonth.first
-
-	    @all_events = Event.all
-	    @events = []
-	    @all_events.each do |e|
-	    	if e.date.future?
-	    		@events << e
-	    	end
-	    end
-    end
+	    @past_charities = OurCharity.all(order: 'sort_order')
+	end
 
     def gallery
     	@images_by_category = GalleryImage.find_all_by_category(params[:category], order: "sort_order")    	
     end
 
-    def session_info
+    def session_information
+    	@session_info = SessionInfo.first
     	@downloads = Download.all(order: 'name')
     end
 
@@ -47,6 +42,16 @@ class ViewableController < ApplicationController
 
     def database
 
+    end
+
+    def events
+	    @all_events = Event.all
+	    @events = []
+	    @all_events.each do |e|
+	    	if e.date.future?
+	    		@events << e
+	    	end
+	    end
     end
 
 end
