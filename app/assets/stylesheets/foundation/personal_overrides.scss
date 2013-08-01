@@ -8,7 +8,7 @@
 
 	$button-font-color: #444; // will only change color if the background is dark
 	$button-border-width: 0px;
-	$button-color: #FAF0DE;
+	$button-color: #f3ecdc;
 	$button-font-weight: bold;
 	.menu_button{ 
 		@include button-base();

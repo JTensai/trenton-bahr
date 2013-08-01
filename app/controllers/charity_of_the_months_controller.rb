@@ -1,4 +1,5 @@
 class CharityOfTheMonthsController < ApplicationController
+  before_filter :authorize
 
   # GET /charity_of_the_months/new
   # GET /charity_of_the_months/new.json

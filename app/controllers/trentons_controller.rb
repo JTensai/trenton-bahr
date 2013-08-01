@@ -1,5 +1,5 @@
 class TrentonsController < ApplicationController
-
+  before_filter :authorize
 
   # GET /trentons/new
   # GET /trentons/new.json

@@ -1,8 +1,5 @@
 TrentonBahr::Application.routes.draw do
 
-  resources :our_charities
-
-
   root :to => 'viewable#home'
 
   get 'home', to: 'viewable#home'
@@ -12,7 +9,7 @@ TrentonBahr::Application.routes.draw do
   get 'session_information', to: 'viewable#session_information'
   get 'contact', to: 'viewable#contact'
   get 'database', to: 'viewable#database'
-  get 'events_page', to: 'viewable#events'
+  get 'events_page', to: 'viewable#events_page'
 
 
   match 'gallery/:category' => "viewable#gallery"
@@ -28,7 +25,14 @@ TrentonBahr::Application.routes.draw do
   resources :gallery_images
   resources :downloads
   resources :session_types
-  resources :session_infos
+  resources :session_infos  
+  resources :users
+  resources :sessions
+  resources :our_charities
+
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
 
 
   # The priority is based upon order of creation:

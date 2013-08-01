@@ -1,4 +1,5 @@
 class OurCharitiesController < ApplicationController
+  before_filter :authorize
   # GET /our_charities
   # GET /our_charities.json
   def index

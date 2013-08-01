@@ -1,4 +1,5 @@
 class RotatingImagesController < ApplicationController
+  before_filter :authorize
   # GET /rotating_images
   # GET /rotating_images.json
   def index

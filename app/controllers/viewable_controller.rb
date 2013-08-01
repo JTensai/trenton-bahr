@@ -1,4 +1,5 @@
 class ViewableController < ApplicationController
+	before_filter :authorize, only: [:database, :events_page]
 
 	def home
 		@seniors = Testimonial.where(live: true).where(category: "Seniors").sample(n=1)
@@ -44,7 +45,7 @@ class ViewableController < ApplicationController
 
     end
 
-    def events
+    def events_page
 	    @all_events = Event.all
 	    @events = []
 	    @all_events.each do |e|

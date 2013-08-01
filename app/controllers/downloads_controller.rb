@@ -1,4 +1,5 @@
 class DownloadsController < ApplicationController
+  before_filter :authorize
   # GET /downloads
   # GET /downloads.json
   def index

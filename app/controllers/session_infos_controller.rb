@@ -1,4 +1,5 @@
 class SessionInfosController < ApplicationController
+  before_filter :authorize
 
   # GET /session_infos/new
   # GET /session_infos/new.json

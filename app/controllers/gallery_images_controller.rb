@@ -1,4 +1,5 @@
 class GalleryImagesController < ApplicationController
+  before_filter :authorize
 
   # GET /gallery_images/1
   # GET /gallery_images/1.json

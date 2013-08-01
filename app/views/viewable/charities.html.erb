@@ -37,27 +37,31 @@
 					<div style="padding: 5px; 12px;"><b><li><%= c.name %></li></b></div>
 				<% end %>
 
-				<div class="row", style="margin-top: 30px;">
-					<div class="large-10 large-centered columns"> 
-						<div class="large-5 columns left">   
-							<%= link_to 'Edit Charities', our_charities_path, class: "button radius expand alert small" %>
-						</div>
-						<div class="large-5 columns right">      
-							<%= link_to "New Charity", new_our_charity_path, class: "button radius expand small" %>
+          		<% if current_user %>
+					<div class="row", style="margin-top: 30px;">
+						<div class="large-10 large-centered columns"> 
+							<div class="large-5 columns left">   
+								<%= link_to 'Edit Charities', our_charities_path, class: "button radius expand alert small" %>
+							</div>
+							<div class="large-5 columns right">      
+								<%= link_to "New Charity", new_our_charity_path, class: "button radius expand small" %>
+							</div>
 						</div>
 					</div>
-				</div>
+				<% end %>
 			</div>
 		</div>
 	<% end %>
 
-	<div class="row" style="margin-top: 45px;">
-		<div class="large-3 large-centered columns">
-			<% if @charity == nil %>
-				<%= link_to 'Set Up Charity of the Month', new_charity_of_the_month_path, class: "button radius expand" %>
-			<% else %>
-				<%= link_to 'Edit Charity of the Month', edit_charity_of_the_month_path(@charity), class: "button radius expand" %>
-			<% end %>
+	<% if current_user %>
+		<div class="row" style="margin-top: 45px;">
+			<div class="large-3 large-centered columns">
+				<% if @charity == nil %>
+					<%= link_to 'Set Up Charity of the Month', new_charity_of_the_month_path, class: "button radius expand" %>
+				<% else %>
+					<%= link_to 'Edit Charity of the Month', edit_charity_of_the_month_path(@charity), class: "button radius expand" %>
+				<% end %>
+			</div>
 		</div>
-	</div>
+	<% end %>
 </div>

@@ -15,60 +15,54 @@
 		        <%= link_to "Pets", {:controller => "viewable", :action => "gallery", :category => "Pets"}, class: "button radius expand alert" %>
 		        <%= link_to "Business", {:controller => "viewable", :action => "gallery", :category => "Business"}, class: "button radius expand alert", style: "margin-bottom:0" %>
 		    </div>
-	    	<div class="large-11 large-centered columns" style="margin-top: 45px;">
-		        <%= link_to 'New Image', new_gallery_image_path, class: "button radius expand small" %>
-		    </div>
+
+         	<% if current_user %>
+		    	<div class="large-11 large-centered columns" style="margin-top: 45px;">
+			        <%= link_to 'New Image', new_gallery_image_path, class: "button radius expand small" %>
+			    </div>
+		    <% end %>
 		</div>
 		<div class="large-10 columns" style="padding: 15px 0px 0px 40px;">
-			<div class="row">
-				<!-- To be used when not logged in -->
-				<h6>While not logged in, pictures behave this way:</h6>
-				<!-- <ul class="large-block-grid-5" data-clearing>
-					<%# @images_by_category.each do |gallery_image| %>
-						<li style="margin: 0; padding: 12px 7px; text-align:center">
-							<%#= image_tag(gallery_image.image, class: "gallery_image", style: "max-height: 120px;") %>
-						</li>
-					<%# end %>
-				</ul> -->
-				<ul data-clearing>
-					<% @images_by_category.each do |gallery_image| %>
-						<li class="large-2 columns" style="margin: 0; padding: 12px 7px; text-align:center; height: 150px; float:left">
-							<%= image_tag(gallery_image.image, class: "gallery_image", style: "max-height: 120px;") %>
-						</li>
-					<% end %>
-				</ul>
+			<div class="row">				
+          		<% if current_user %>
+					<div class="row">
+						<ul class="large-block-grid-6" style="padding-left: 10px;">
+							<% @images_by_category.each do |gallery_image| %>
+								<li style="margin: 0; padding: 12px; text-align:center">
+									<div style="height: 120px; text-align: center">
+										<%= link_to image_tag(gallery_image.image, class: "gallery_image", style: "max-height: 110px;"), gallery_image %>
+									</div>
+									<div class="large-6 columns left" style="font-size: 13px;">
+										<div class="large-10 columns large-centered">
+											<%= link_to 'Edit', edit_gallery_image_path(gallery_image), class: "button radius tiny expand secondary" %>
+										</div>
+									</div>
+									<div class="large-6 columns right" style="font-size: 13px;">
+										<div class="large-10 columns large-centered">
+											<%= link_to 'Destroy', gallery_image, method: :delete, data: { confirm: 'Are you sure?' }, class: "button radius alert tiny expand" %>
+										</div>
+									</div>
+								</li>
+							<% end %>
+						</ul>
+					</div>
+				<% else %>
+					<!-- <ul class="large-block-grid-5" data-clearing>
+						<%# @images_by_category.each do |gallery_image| %>
+							<li style="margin: 0; padding: 12px 7px; text-align:center">
+								<%#= image_tag(gallery_image.image, class: "gallery_image", style: "max-height: 120px;") %>
+							</li>
+						<%# end %>
+					</ul> -->
+					<ul data-clearing>
+						<% @images_by_category.each do |gallery_image| %>
+							<li class="large-2 columns" style="margin: 0; padding: 12px 7px; text-align:center; height: 150px; float:left">
+								<%= image_tag(gallery_image.image, class: "gallery_image", style: "max-height: 120px;") %>
+							</li>
+						<% end %>
+					</ul>
+				<% end %>
 
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-			</div>
-				<!-- To be used while logged in -->
-
-			<div class="row">
-				<h6>If you are logged in, pictures behave this way:</h6>
-				<ul class="large-block-grid-6" style="padding-left: 10px;">
-					<% @images_by_category.each do |gallery_image| %>
-						<li style="margin: 0; padding: 12px; text-align:center">
-							<div style="height: 120px; text-align: center">
-								<%= link_to image_tag(gallery_image.image, class: "gallery_image", style: "max-height: 110px;"), gallery_image %>
-							</div>
-							<div class="large-6 columns left" style="font-size: 13px;">
-								<div class="large-10 columns large-centered">
-									<%= link_to 'Edit', edit_gallery_image_path(gallery_image), class: "button radius tiny expand secondary" %>
-								</div>
-							</div>
-							<div class="large-6 columns right" style="font-size: 13px;">
-								<div class="large-10 columns large-centered">
-									<%= link_to 'Destroy', gallery_image, method: :delete, data: { confirm: 'Are you sure?' }, class: "button radius alert tiny expand" %>
-								</div>
-							</div>
-						</li>
-					<% end %>
-				</ul>
 			</div>
 		</div>
 	</div>

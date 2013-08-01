@@ -23,7 +23,6 @@
 
 #page{
 	/*border: solid blue 2px;*/
-	min-height: 700px;
 	padding: 30px 15px 10px 15px;
 	background-color: #fffaf0;
 	padding-bottom: 0px;
@@ -32,6 +31,15 @@
 	box-shadow: 0 0 5px #999;
 	border: 1px solid #2B1903;
 	border-radius: 7px;
+}
+
+#page_content{
+	min-height: 500px;
+}
+
+#footer{
+	height: 80px;
+	margin-top: 50px;
 }
 
 #placeholder{

@@ -1,4 +1,5 @@
 class TestimonialsController < ApplicationController
+  before_filter :authorize
   # GET /testimonials
   # GET /testimonials.json
   def index

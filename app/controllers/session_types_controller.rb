@@ -1,4 +1,5 @@
 class SessionTypesController < ApplicationController
+  before_filter :authorize
   # GET /session_types
   # GET /session_types.json
   def index
