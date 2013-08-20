@@ -55,4 +55,8 @@ class ViewableController < ApplicationController
 	    end
     end
 
+    def colors
+    	
+    end
+
 end

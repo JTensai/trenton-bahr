@@ -4,7 +4,7 @@ class RotatingImagesController < ApplicationController
   # GET /rotating_images.json
   def index
     @live_images = RotatingImage.where(live: true).all(order: "sort_order")
-    @rotating_images = RotatingImage.all
+    @rotating_images = RotatingImage.where(live: false)
 
     respond_to do |format|
       format.html # index.html.erb

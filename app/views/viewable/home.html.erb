@@ -1,14 +1,18 @@
-<!-- data-options="animation: fade; pause_on_hover: true; animation_speed: 500; slide_number: false;" -->
-<% @orbit_options = "bullets: false; navigation_arrows: false; timer_speed: 5000; resume_on_mouseout: true;" %>
+<!-- data-options="pause_on_hover: true; animation_speed: 500; slide_number: false;" -->
+<% @orbit_options = "animation: fade; bullets: false; navigation_arrows: false; timer_speed: 4000; resume_on_mouseout: true;" %>
 
 <div class="large-12 columns">
 
 	<div class="row">
 		<div class="large-11 columns large-centered" style="border: solid 2px #444; height: 450px; box-shadow: 0 0 20px #666; overflow:hidden">
-			<div class="slideshow-wrapper" style="height: 446px;">
+			<div class="slideshow-wrapper">
+				<div class="preloader"></div>
 				<ul data-orbit data-options="<%= @orbit_options %>">
 					<% if @rotating_images == [] %>
-						<li><%= image_tag('http://placehold.it/884x446&text=Placeholder') %></li>
+						<li><%= image_tag('http://placehold.it/884x450/5f0f0f&text=Placeholder') %></li>
+						<li><%= image_tag('http://placehold.it/884x450/116a78&text=Placeholder') %></li>
+						<li><%= image_tag('http://placehold.it/884x450/bb1b1b&text=Placeholder') %></li>
+						<li><%= image_tag('http://placehold.it/884x450/1c0205&text=Placeholder') %></li>
 					<% else %>					
 						<% @rotating_images.each do |r| %>
 							<li><%= image_tag(r.image.url) %></li>
@@ -32,7 +36,7 @@
 			</div>
 			<div class="large-4 columns">
 				<div class="large-12 large-centered" style="height: 50px; text-align:center">
-					<%= link_to "Request Session", 'javascript:;', { class: "button alert radius", style: "width: 190px;" } %>
+					<%= link_to "Request Session", 'javascript:;', { class: "button alert radius", :'data-reveal-id' => "requestSessionModal", style: "width: 190px;" } %>
 				</div>
 			</div>
 			<div class="large-4 columns">
@@ -51,22 +55,22 @@
 		<div class="large-11 columns large-centered">
 			<div class="large-3 columns" style="padding: 10px;">
 				<div class="large-12 columns">
-					<%= link_to image_tag("http://placehold.it/200x150/AB0000/ffffff&text=placeholder", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Families"} %>
+					<%= link_to image_tag("families.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Families"} %>
 				</div>
 			</div>
 			<div class="large-3 columns" style="padding: 10px;">
 				<div class="large-12 columns">
-					<%= link_to image_tag("http://placehold.it/200x150/2D0059/ffffff&text=placeholder", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Seniors"} %>
+					<%= link_to image_tag("seniors.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Seniors"} %>
 				</div>
 			</div>
 			<div class="large-3 columns" style="padding: 10px;">
 				<div class="large-12 columns">
-					<%= link_to image_tag("http://placehold.it/200x150/FFF7DB/777777&text=placeholder", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Children"} %>
+					<%= link_to image_tag("children.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Children"} %>
 				</div>
 			</div>
 			<div class="large-3 columns" style="padding: 10px;">
 				<div class="large-12 columns">
-					<%= link_to image_tag("http://placehold.it/200x150/452500/ffffff&text=placeholder", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Pets"} %>
+					<%= link_to image_tag("pets.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Pets"} %>
 				</div>
 			</div>
 		</div>
@@ -110,7 +114,9 @@
 			</div>
 		</div>
 	</div>
-
+<div id="requestSessionModal" class="reveal-modal" style="top: 15px;">
+	<h3 style="text-align:center">Request Info</h3>
+	<%= render 'contact_forms/form', :locals => { contact_form: @contact_form = ContactForm.new, origin: @passed_origin = "front_page", back: @back_destination = root_path, cancel: @can_cancel = false } %>
+	<a class="close-reveal-modal">&#215;</a>
 </div>
-
-
+</div>

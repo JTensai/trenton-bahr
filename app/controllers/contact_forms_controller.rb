@@ -36,6 +36,7 @@ class ContactFormsController < ApplicationController
   # GET /contact_forms/1/edit
   def edit
     @contact_form = ContactForm.find(params[:id])
+
   end
 
   # POST /contact_forms
@@ -45,8 +46,14 @@ class ContactFormsController < ApplicationController
 
     respond_to do |format|
       if @contact_form.save
-        format.html { redirect_to @contact_form, notice: 'Contact form was successfully created.' }
-        format.json { render json: @contact_form, status: :created, location: @contact_form }
+        if params["origin"] == "contact_page"
+          format.html { redirect_to contact_path, notice: 'Thank you, your request has been submitted' }
+        elsif params["origin"] == "front_page"
+          format.html { redirect_to root_path, notice: 'Thank you, your request has been submitted' }
+        elsif params["origin"] == "contact_forms/new"
+          format.html { redirect_to @contact_form, notice: 'Contact Form Created' }
+        end
+
       else
         format.html { render action: "new" }
         format.json { render json: @contact_form.errors, status: :unprocessable_entity }

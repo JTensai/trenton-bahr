@@ -10,6 +10,7 @@ TrentonBahr::Application.routes.draw do
   get 'contact', to: 'viewable#contact'
   get 'database', to: 'viewable#database'
   get 'events_page', to: 'viewable#events_page'
+  get 'colors', to: 'viewable#colors'
 
 
   match 'gallery/:category' => "viewable#gallery"
@@ -34,6 +35,7 @@ TrentonBahr::Application.routes.draw do
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
+  get 'users/:id/edit', to: 'users#edit'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

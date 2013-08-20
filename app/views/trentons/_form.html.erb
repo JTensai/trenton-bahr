@@ -15,18 +15,6 @@
 </style>
 
 <%= form_for @trenton, html: {:class => "custom"} do |f| %>
-  <% if @trenton.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@trenton.errors.count, "error") %> prohibited this trenton from being saved:</h2>
-
-      <ul>
-      <% @trenton.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
 
   <div class="large-12 columns">
     <div class="row">

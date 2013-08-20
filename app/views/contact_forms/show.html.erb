@@ -1,63 +1,156 @@
-<p>
-  <b>Request type:</b>
-  <%= @contact_form.request_type %>
-</p>
+<h3 style="text-align:center"><%= @contact_form.name %></h3>
+<div class="row" style="line-height: 30px;">
 
-<p>
-  <b>Name:</b>
-  <%= @contact_form.name %>
-</p>
+  <div class="large-5 columns" style="padding: 15px 30px;">
+    <% unless @contact_form.email == nil || @contact_form.email == "" %>
+      <div class="row" style="margin-bottom: 15px;">
+        <div class="large-5 columns" style="text-align:right; padding-right: 20px;">
+          <b>Email:</b>
+        </div>
+        <div class="large-7 columns">
+          <%= @contact_form.email %>
+        </div>
+      </div>
+    <% end %>
 
-<p>
-  <b>Phone number:</b>
-  <%= @contact_form.phone_number %>
-</p>
+    <% unless @contact_form.phone_number == nil || @contact_form.phone_number == "" %>
+      <div class="row" style="margin-bottom: 15px;">
+        <div class="large-5 columns" style="text-align:right; padding-right: 20px;">
+          <b>Phone Number:</b>
+        </div>
+        <div class="large-7 columns">
+          <%= @contact_form.phone_number %>
+        </div>
+      </div>
+    <% end %>
 
-<p>
-  <b>Address:</b>
-  <%= @contact_form.address %>
-</p>
+    <% unless @contact_form.street == "nil" || @contact_form.city == "" || @contact_form.state == "" || @contact_form.zip_code == "" %>
+      <div class="row" style="margin-bottom: 15px;">
+        <div class="large-5 columns" style="text-align:right; padding-right: 20px;">
+          <b>Address:</b>
+        </div>
+        <div class="large-7 columns">
+          <%= @contact_form.street %><br>
+          <%= @contact_form.city %>, <%= @contact_form.state %> <%= @contact_form.zip_code %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-<p>
-  <b>Email:</b>
-  <%= @contact_form.email %>
-</p>
+  <div class="large-7 columns" style="padding: 15px 30px;">
 
-<p>
-  <b>Comments:</b>
-  <%= @contact_form.comments %>
-</p>
+    <% unless @contact_form.request_type == nil || @contact_form.request_type == ""  %>
+      <div class="row" style="margin-bottom: 15px;">
+        <div class="large-4 columns" style="text-align:right; padding-right: 20px;">
+          <b>Request Type:</b>
+        </div>
+        <div class="large-7 columns left">
+          <%= @contact_form.request_type %>
+        </div>
+      </div>
+    <% end %>
 
-<p>
-  <b>Contact time:</b>
-  <%= @contact_form.contact_time %>
-</p>
+    <% unless @contact_form.contact_time == nil || @contact_form.contact_time == "" %>
+      <div class="row" style="margin-bottom: 15px;">
+        <div class="large-4 columns" style="text-align:right; padding-right: 20px;">
+          <b>Contact Time:</b>
+        </div>
+        <div class="large-7 columns left">
+          <%= @contact_form.contact_time %>
+        </div>
+      </div>   
+    <% end %>
 
-<p>
-  <b>Preferred time:</b>
-  <%= @contact_form.preferred_time %>
-</p>
+    <% if @contact_form.request_type == "Charity Info" %>
+      <% unless @contact_form.auction_type == nil || @contact_form.auction_type == "" %>
+        <div class="row" style="margin-bottom: 15px;">
+          <div class="large-4 columns" style="text-align:right; padding-right: 20px;">
+            <b>Auction Type:</b>
+          </div>
+          <div class="large-7 columns left">
+            <%= @contact_form.auction_type %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
 
-<p>
-  <b>Preferred day:</b>
-  <%= @contact_form.preferred_day %>
-</p>
+    <% if @contact_form.request_type == "Booking" || @contact_form.request_type == "Charity Info" %>
+      <% unless @contact_form.preferred_date == nil || @contact_form.preferred_date == "" %>
+        <div class="row" style="margin-bottom: 15px;">
+          <div class="large-4 columns" style="text-align:right; padding-right: 20px;">
+            <b>Preferred Date:</b>
+          </div>
+          <div class="large-7 columns left">
+            <%#= @contact_form.preferred_date %>
+            <%= @contact_form.preferred_date.strftime("%b %e, %Y") %>
+          </div>
+        </div>
+      <% end %>
 
-<p>
-  <b>Preferred date:</b>
-  <%= @contact_form.preferred_date %>
-</p>
+      <% if @contact_form.request_type == "Booking" %>
+        <% unless @contact_form.preferred_day == nil || @contact_form.preferred_day == "" %>
+          <div class="row" style="margin-bottom: 15px;">
+            <div class="large-4 columns" style="text-align:right; padding-right: 20px;">
+              <b>Preferred Day:</b>
+            </div>
+            <div class="large-7 columns left">
+              <%= @contact_form.preferred_day %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
 
-<p>
-  <b>Session type:</b>
-  <%= @contact_form.session_type %>
-</p>
+      <% unless @contact_form.preferred_time == nil || @contact_form.preferred_time == "" %>
+        <div class="row" style="margin-bottom: 15px;">
+          <div class="large-4 columns" style="text-align:right; padding-right: 20px;">
+            <b>Preferred Time:</b>
+          </div>
+          <div class="large-7 columns left">
+            <%= @contact_form.preferred_time.strftime("%l:%M %P") %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
 
-<p>
-  <b>Auction type:</b>
-  <%= @contact_form.auction_type %>
-</p>
 
 
-<%= link_to 'Edit', edit_contact_form_path(@contact_form) %> |
-<%= link_to 'Back', contact_forms_path %>
+    <% if @contact_form.request_type == "Booking" %>
+      <% unless @contact_form.session_type_id == nil || @contact_form.session_type_id == "" %>
+        <div class="row" style="margin-bottom: 15px;">
+          <div class="large-4 columns" style="text-align:right; padding-right: 20px;">
+            <b>Session Type:</b>
+          </div>
+          <div class="large-7 columns left">
+            <%= SessionType.find(@contact_form.session_type_id).name %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+
+    <% unless @contact_form.comments == nil || @contact_form.comments == "" %>
+      <div class="row" style="margin-bottom: 15px;">
+        <div class="large-4 columns" style="text-align:right; padding-right: 20px;">
+          <b>Comment:</b>
+        </div>
+        <div class="large-7 columns left">
+          <%= @contact_form.comments %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
+
+
+  <div class="row" style="margin-top: 115px;">
+    <div class="large-4 large-centered columns"> 
+      <div class="large-5 columns left">   
+        <%= link_to 'Back', contact_forms_path, class: "button radius expand secondary" %>
+      </div>
+      <div class="large-5 columns right">      
+        <%= link_to "Edit", edit_contact_form_path(@contact_form), class: "button radius expand" %>
+      </div>
+    </div>
+  </div>
+

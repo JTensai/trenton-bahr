@@ -1,8 +1,15 @@
-<p>
+<div class="large-8 columns large-centered" style="text-align:center; padding: 30px;">
   <b>Name:</b>
   <%= @session_type.name %>
-</p>
+</div>
 
-
-<%= link_to 'Edit', edit_session_type_path(@session_type) %> |
-<%= link_to 'Back', session_types_path %>
+  <div class="row" style="margin-top: 25px;">
+    <div class="large-4 large-centered columns"> 
+      <div class="large-5 columns left">   
+        <%= link_to 'Back', session_types_path, class: "button radius expand secondary" %>
+      </div>
+      <div class="large-5 columns right">      
+        <%= link_to "Edit", edit_session_type_path(@session_type), class: "button radius expand" %>
+      </div>
+    </div>
+  </div>

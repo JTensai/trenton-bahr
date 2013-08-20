@@ -1,35 +1,49 @@
-<br><br><h3 style="text-align:center;">Listing Rotating Images</h3>
+<h3 style="text-align:center;">Listing Rotating Images</h3>
 
 <div class="row">
   <div class="large-3 large-centered columns">
       <%= link_to 'New Rotating Image', new_rotating_image_path, class: "button radius expand small" %>
   </div>
 </div>
-
-<h5 style="text-align:center">This won't be a table, it will have previews of each image, and show what order it is in.</h6>
+<br>
+<br>
 
 <div class="row">
-  <table style="margin: 30px auto 0 auto;">
-    <tr>
-      <th>Image</th>
-      <th>Live</th>
-      <th>Sort order</th>
-      <th>Rotation time</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-
-  <% @live_images.each do |rotating_image| %>
-    <tr>
-      <td><%= rotating_image.image %></td>
-      <td><%= rotating_image.live %></td>
-      <td><%= rotating_image.sort_order %></td>
-      <td><%= rotating_image.rotation_time %></td>
-      <td><%= link_to 'Show', rotating_image %></td>
-      <td><%= link_to 'Edit', edit_rotating_image_path(rotating_image) %></td>
-      <td><%= link_to 'Destroy', rotating_image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </table>
+  <h3 style="margin:0; text-align:center;">Live</h3>
+  <div class="large-block-grid-4" style="border: solid 2px #777; border-radius: 5px; margin: 0px 15px; padding: 15px;">
+    <% @live_images.each do |image| %>
+      <li>   
+        <%= link_to(image_tag(image.image.url, class: "rotating_image_index"), image) %>
+        <div class="large-3 columns" style="text-align:center; margin: 11px 0px 0px 10px; border: #999 solid 2px; border-radius: 4px; font-size: 14px;">
+          <h4 style="margin:0"><%= image.sort_order %></h4>
+        </div>
+        <div class="large-8 columns right" style="padding: 12px;">
+          <%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert radius small expand" %>
+        </div>
+      </li>
+    <% end %>
+  </div>
+</div>
+<br>
+<br>
+<div class="row">
+  <h3 style="margin:0; text-align:center;">Not Live</h3>
+  <div class="large-block-grid-4" style="border: solid 2px #777; border-radius: 5px; margin: 0px 15px; padding: 15px;">
+    <% @rotating_images.each do |image| %>
+      <li>
+        <div class="large-12 columns" style="text-align:center; margin-bottom: 4px; height: 17px;">
+          <% if image.live == true %>
+            <b>Live</b>
+          <% end %>
+        </div>      
+        <%= link_to(image_tag(image.image.url, class: "rotating_image_index"), image) %>
+        <div class="large-3 columns" style="text-align:center; margin: 11px 0px 0px 10px; border: #999 solid 2px; border-radius: 4px; font-size: 14px;">
+          <h4 style="margin:0"><%= image.sort_order %></h4>
+        </div>
+        <div class="large-8 columns right" style="padding: 12px;">
+          <%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' }, class: "button alert radius small expand" %>
+        </div>
+      </li>
+    <% end %>
+  </div>
 </div>

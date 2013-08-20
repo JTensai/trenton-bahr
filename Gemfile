@@ -21,8 +21,8 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails' # you need this or you get an err
-  # gem 'zurb-foundation', '~> 4.3.1' #use this when they fix orbit
-  gem 'zurb-foundation', '~> 4.2.3'
+  gem 'zurb-foundation', '~> 4.3.1' #use this when they fix orbit
+  # gem 'zurb-foundation', '~> 4.2.3'
 end
 
 gem 'jquery-rails'

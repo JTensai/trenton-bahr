@@ -1,3 +1,4 @@
 <h2 style="text-align:center">Information Request</h1>
-
-<%= render 'form' %>
+<div class="large-9 large-centered columns" style="margin-top: 50px;">
+	<%= render 'form', :locals => { contact_form: @contact_form = ContactForm.new, origin: @passed_origin = "contact_forms/new", back: @back_destination = contact_forms_path, cancel: @can_cancel = true } %>
+</div>

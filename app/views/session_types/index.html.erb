@@ -17,6 +17,7 @@
     <tr>
       <td style="width: 300px; text-align:center"><%= session_type.name %></td>
       <td style="width: 200px; text-align:center">
+        <%= link_to 'Show', session_type_path(session_type), class: "tiny button radius", style:"margin: 5px 0;" %>
         <%= link_to 'Edit', edit_session_type_path(session_type), class: "tiny button radius secondary", style:"margin: 5px 0;" %>
         <%= link_to 'Destroy', session_type, method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny button radius alert", style:"margin: 0;" %>
       </td>

@@ -1,3 +1,41 @@
 // Place all the styles related to the ContactForms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#date_selector{	
+	.custom.dropdown{
+		display:inline;
+		float: left;
+		margin-right: 12px;
+		.selector{
+			width: 27px;
+		}
+		.current{
+			margin: 0 18px 0 7px;
+		}
+	}
+
+	.custom.dropdown:nth-child(2){
+		// width: 112px;
+		width: 43%;
+	}
+	.custom.dropdown:nth-child(4){
+		// width: 55px;
+		width: 21%;
+		.current{
+			margin: 0 24px 0 7px;
+			text-align: center;
+		}
+	}
+	.custom.dropdown:nth-child(6){
+		// width: 70px;
+		width: 26.5%;
+		margin-right: 0;
+		float: right;
+		.current{
+			margin: 0 22px 0 7px;
+			text-align: center;
+		}
+	}
+}

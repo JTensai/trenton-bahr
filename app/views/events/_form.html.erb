@@ -1,22 +1,5 @@
-<style>
-  div select{
-    display:inline;
-  }
-  select.date { display: inline; }
-</style>
 <div class="large-12 large-centered columns" style="margin-top: 50px;">
-  <%= form_for @event, html: {:class => "custom"} do |f| %>
-    <% if @event.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-        <ul>
-        <% @event.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
+  <%= form_for @event, html: {:class => "custom", :'data-abide' => ''} do |f| %>
 
     <div class="row">
       <div class="large-11 columns large-centered">
@@ -25,7 +8,8 @@
             <%= f.label :name, "Name: ", class: "inline right" %>
           </div>
           <div class="large-8 columns left">
-            <%= f.text_field :name %>
+            <%= f.text_field :name, required:'' %>
+            <small class="error">Can't be blank</small>
           </div>
         </div>
 

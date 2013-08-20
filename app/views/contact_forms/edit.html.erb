@@ -1,3 +1,4 @@
 <h2 style="text-align:center">Editing Contacts</h2>
-
-<%= render 'form' %>
+<div class="large-9 large-centered columns" style="margin-top: 50px;">
+	<%= render 'form', :locals => { origin: @passed_origin = "contact_forms/edit", back: @back_destination = @contact_form, cancel: @can_cancel = true } %>
+</div>

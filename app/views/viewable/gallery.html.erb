@@ -23,14 +23,15 @@
 		    <% end %>
 		</div>
 		<div class="large-10 columns" style="padding: 15px 0px 0px 40px;">
+
 			<div class="row">				
           		<% if current_user %>
 					<div class="row">
-						<ul class="large-block-grid-6" style="padding-left: 10px;">
+						<ul class="large-block-grid-5" style="margin:0">
 							<% @images_by_category.each do |gallery_image| %>
-								<li style="margin: 0; padding: 12px; text-align:center">
-									<div style="height: 120px; text-align: center">
-										<%= link_to image_tag(gallery_image.image, class: "gallery_image", style: "max-height: 110px;"), gallery_image %>
+								<li style="margin: 0; padding: 12px 7px; text-align:center">
+									<div style="height: 130px; text-align: center">
+										<%= link_to image_tag(gallery_image.image, class: "gallery_image", style: "max-height: 120px;"), gallery_image %>
 									</div>
 									<div class="large-6 columns left" style="font-size: 13px;">
 										<div class="large-10 columns large-centered">
@@ -47,23 +48,36 @@
 						</ul>
 					</div>
 				<% else %>
-					<!-- <ul class="large-block-grid-5" data-clearing>
-						<%# @images_by_category.each do |gallery_image| %>
-							<li style="margin: 0; padding: 12px 7px; text-align:center">
-								<%#= image_tag(gallery_image.image, class: "gallery_image", style: "max-height: 120px;") %>
-							</li>
-						<%# end %>
-					</ul> -->
-					<ul data-clearing>
+				 
+					<ul class="large-block-grid-5">
+						<% l = 0 %>
 						<% @images_by_category.each do |gallery_image| %>
-							<li class="large-2 columns" style="margin: 0; padding: 12px 7px; text-align:center; height: 150px; float:left">
-								<%= image_tag(gallery_image.image, class: "gallery_image", style: "max-height: 120px;") %>
+							<% l = l+1 %>
+							<li style="margin: 0; padding: 12px 7px; text-align:center; margin-bottom: 20px;">
+								<%= link_to(image_tag(gallery_image.image, class: 'gallery_image', style: "max-height: 120px;"), '#', :'data-reveal-id' => "galleryModal", :'data-orbit-link' => "picture_#{l}" ) %>
 							</li>
 						<% end %>
-					</ul>
+					</ul> 
+
 				<% end %>
+
+				<%= link_to "Click Me For Pictures", '#', class: "button radius small", :'data-reveal-id' => "galleryModal" %>
 
 			</div>
 		</div>
 	</div>
+</div>
+
+<div id="galleryModal" class="reveal-modal">
+	<div class="preloader"></div>
+	<ul data-orbit data-options="animation: fade; variable_height: true; animation_speed: 500; timer_speed: 1000000; pause_on_hover: true; resume_on_mouseout: false; navigation_arrows: true; slide_number: true; bullets: false; timer: false;">
+		<% s = 0 %>
+		<% @images_by_category.each do |gallery_image| %>
+			<% s = s+1 %>
+			<li style="padding: 10px;" data-orbit-slide="<%= "picture_#{s}" %>">
+				<%= image_tag(gallery_image.image, style:"margin: 0 auto; box-shadow: 0 0 8px #555; max-height: 600px; margin-bottom: 30px;") %>
+			</li>
+	  	<% end %>
+	</ul>
+	<a class="close-reveal-modal">&#215;</a>
 </div>
