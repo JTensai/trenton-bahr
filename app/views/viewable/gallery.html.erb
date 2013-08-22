@@ -2,7 +2,7 @@
 	<div class="large-9 columns">
 		<div class="row">
 			<dl class="sub-nav">
-				<dd <% if params[:category] == "Families" %> class="my_active" <% end %> class="sub_nav_header"><a href="Families">Family Portraits</a></dd>
+				<dd <% if params[:category] == "Family Portraits" %> class="my_active" <% end %> class="sub_nav_header"><a href="Family Portraits">Family Portraits</a></dd>
 				<dd <% if params[:category] == "High School Seniors" %> class="my_active" <% end %> class="sub_nav_header"><a href="High School Seniors">High School Seniors</a></dd>
 				<dd <% if params[:category] == "Children" %> class="my_active" <% end %> class="sub_nav_header"><a href="Children">Children</a></dd>
 				<dd <% if params[:category] == "Pets" %> class="my_active" <% end %> class="sub_nav_header"><a href="Pets">Pets</a></dd>
@@ -51,17 +51,17 @@
 			<% end %>
 		</div>
 	</div>
-	<div class="large-3 columns" style="padding: 0px 15px;">
-		<% if params[:category] == "Families" %>
-			<h3>Family Portraits</h3>
-		<% elsif params[:category] == "Seniors" %>
-
+	<div class="large-3 columns" style="padding: 30px 15px;">
+		<% if params[:category] == "Family Portraits" %>
+			<h5 style="text-align:center">Family Portraits</h5>
+		<% elsif params[:category] == "High School Seniors" %>
+			<h5 style="text-align:center">High School Seniors</h5>
 		<% elsif params[:category] == "Children" %>
-
+			<h5 style="text-align:center">Children</h5>
 		<% elsif params[:category] == "Pets" %>
-
-		<% elsif params[:category] == "Business" %>
-
+			<h5 style="text-align:center">Pets</h5>
+		<% elsif params[:category] == "Executive/Profiles" %>
+			<h5 style="text-align:center">Executives / Profiles</h5>
 		<% end %>
 	</div>
 </div>
