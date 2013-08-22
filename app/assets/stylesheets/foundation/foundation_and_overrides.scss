@@ -8,14 +8,16 @@
 /////////////////////////////////////// MY VALUES /////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-// $my-brown: #2B1903;
-// $light-brown: #5C3A21;
-// $my-cream: #f3ecdc;
-// $trenton-cream: #fffaf0;
-// $my-red: #9C0000;
+$light-cream: #f6f3ea;
+$darker-cream: #f3ecdc;
+$dark-brown: #1c0205;
+$heart-red: #bb1b1b;
+$accent-red: #5f0f0f;
+$accent-teal: #116a78;
 $my-button-red: #700B0B;
-// $my-purple: #55065C;
-$alert-color: $my-button-red;
+
+$primary-color: $accent-teal;
+$alert-color: $accent-red;
 $row-width: 1000px;
 $column-gutter: 0px;
 $list-nested-margin: emCalc(0px);
@@ -26,6 +28,23 @@ $clearing-carousel-thumb-width: auto;
 $orbit-timer-bg: rgba(0,0,0,0.2);
 $orbit-slide-number-font-color: rgba(0,0,0,0.3);
 $orbit-container-bg: #fff;
+$shiny-edge-size: 0 0 0;
+
+// Subnav Variables
+
+$sub-nav-list-margin: 0;
+$sub-nav-list-padding-top: 0;
+
+// We use this to control the definition
+
+$sub-nav-font-size: emCalc(16);
+$sub-nav-font-color: $light-cream;
+$sub-nav-border-radius: 0px;
+
+// We use these to control the active item styles
+
+$sub-nav-active-bg: $heart-red;
+$sub-nav-active-color: $light-cream;
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -1130,7 +1149,7 @@ $default-float: left;
 // $sub-nav-font-color: #999;
 // $sub-nav-font-weight: normal;
 // $sub-nav-text-decoration: none;
-// $sub-nav-border-radius: 1000px;
+// $sub-nav-border-radius: 0px;
 
 // We use these to control the active item styles
 

@@ -4,8 +4,8 @@
 <div class="large-12 columns">
 
 	<div class="row">
-		<div class="large-11 columns large-centered" style="border: solid 2px #444; height: 450px; box-shadow: 0 0 20px #666; overflow:hidden">
-			<div class="slideshow-wrapper">
+		<div class="large-11 columns large-centered">
+			<div class="slideshow-wrapper" style="border: solid 2px #444; height: 450px; box-shadow: 0 0 20px #666; overflow:hidden; white-space:nowrap;">
 				<div class="preloader"></div>
 				<ul data-orbit data-options="<%= @orbit_options %>">
 					<% if @rotating_images == [] %>
@@ -15,7 +15,7 @@
 						<li><%= image_tag('http://placehold.it/884x450/1c0205&text=Placeholder') %></li>
 					<% else %>					
 						<% @rotating_images.each do |r| %>
-							<li><%= image_tag(r.image.url) %></li>
+							<li><%= image_tag(r.image.url, style: "width: 100% + 1px") %></li>
 						<% end %>
 					<% end %>
 				</ul>
@@ -29,21 +29,21 @@
 				<div class="large-12 large-centered" style="height: 50px; text-align:center">
 					<% @downloads.each do |d| %>
 						<% if d.sort_order == 1 %>
-							<%= link_to d.name, { action: "download", name: d.name }, { class: "button alert radius", style: "width: 190px;" } %>
+							<%= link_to d.name, { action: "download", name: d.name }, { class: "button alert", style: "width: 190px;" } %>
 						<% end %>
 					<% end %>
 				</div>
 			</div>
 			<div class="large-4 columns">
 				<div class="large-12 large-centered" style="height: 50px; text-align:center">
-					<%= link_to "Request Session", 'javascript:;', { class: "button alert radius", :'data-reveal-id' => "requestSessionModal", style: "width: 190px;" } %>
+					<%= link_to "Request Session", 'javascript:;', { class: "button alert", :'data-reveal-id' => "requestSessionModal", style: "width: 190px;" } %>
 				</div>
 			</div>
 			<div class="large-4 columns">
 				<div class="large-12 large-centered" style="height: 50px; text-align:center">
 					<% @downloads.each do |d| %>
 						<% if d.sort_order == 2 %>
-							<%= link_to d.name, { action: "download", name: d.name }, { class: "button alert radius", style: "width: 190px;" } %>
+							<%= link_to d.name, { action: "download", name: d.name }, { class: "button alert", style: "width: 190px;" } %>
 						<% end %>
 					<% end %>
 				</div>
@@ -53,6 +53,7 @@
 
 	<div class="row" style="margin-top: 10px;">		
 		<div class="large-11 columns large-centered">
+			<!-- Change this to a grid! -->
 			<div class="large-3 columns" style="padding: 10px;">
 				<div class="large-12 columns">
 					<%= link_to image_tag("families.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Families"} %>
@@ -65,12 +66,12 @@
 			</div>
 			<div class="large-3 columns" style="padding: 10px;">
 				<div class="large-12 columns">
-					<%= link_to image_tag("children.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Children"} %>
+					<%= link_to image_tag("pets.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Pets"} %>
 				</div>
 			</div>
 			<div class="large-3 columns" style="padding: 10px;">
 				<div class="large-12 columns">
-					<%= link_to image_tag("pets.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Pets"} %>
+					<%= link_to image_tag("children.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Children"} %>
 				</div>
 			</div>
 		</div>

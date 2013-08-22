@@ -27,13 +27,17 @@
     </script>
     <div id="header" class="row">
       <div class="row">
-        <div class="large-4 columns" style="height:100px;">
+        <div class="large-5 columns" style="height:100px;">
           <%= link_to image_tag("Bahr_Temp_Logo.png"), root_path %>
         </div>
-        <div class="large-3 columns right" style="padding: 5px; text-align:right; line-height: 25px;">
-          <span style="font-size: 18px;">(916)-797-1002</span><br>
-          4880 Douglas Blvd<br>Granite Bay CA 95746<br>
-          <div class="fb-like" style="margin-top: 3px;" data-href="https://www.facebook.com/pages/Trenton-Bahr-Fine-Portraiture/446345495455" data-width="130" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+        <div class="large-5 columns right">
+          <div class="large-6 columns" style="font-size: 28px; text-align: right; margin: 18px 0 0 0;">
+            (916)-797-1002
+          </div>
+          <div class="large-5 columns right" style="padding: 5px; text-align:right; line-height: 26px; height: 90px; margin: 10px 0 -10px 0;">
+            4880 Douglas Blvd<br>Granite Bay CA 95746<br>
+            <div class="fb-like" style="margin-top: 3px; height: 22px;" data-href="https://www.facebook.com/pages/Trenton-Bahr-Fine-Portraiture/446345495455" data-width="130" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+          </div>
         </div>
       </div>
       
@@ -44,7 +48,7 @@
             <ul class="menu_button_group round">
               <li style="height: 28px;"><%= link_to "Home", home_path, class: "menu_button" %></li>
               <li><%= link_to "Session Info", session_information_path, class: "menu_button" %></li>
-              <li><%= link_to "Gallery", { controller: "viewable", action: "gallery", category: "Families" }, class: "menu_button" %></li>
+              <li><%= link_to "The Artistry", { controller: "viewable", action: "gallery", category: "Families" }, class: "menu_button" %></li>
               <li><%= link_to "About Us", about_path, class: "menu_button" %></li>
               <li><%= link_to "Contact", contact_path, class: "menu_button" %></li>
               <li><%= link_to "Charities", charities_path, class: "menu_button" %></li>

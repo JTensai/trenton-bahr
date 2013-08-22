@@ -1,67 +1,68 @@
 <div class="large-12 columns">
-
-	<div class="row">
-		<div class="large-centered large-10 columns">
-			<h3 style="text-align:center">Gallery - <%= params[:category] %></h3>
-		</div>
-	</div>
-
-	<div class="row">
-	    <div class="large-2 columns">
-	    	<div class="large-11 large-centered columns" style="margin-top: 20px;">
-		        <%= link_to "Families", {:controller => "viewable", :action => "gallery", :category => "Families"}, class: "button radius expand alert" %>
-		        <%= link_to "Seniors", {:controller => "viewable", :action => "gallery", :category => "Seniors"}, class: "button radius expand alert" %>
-		        <%= link_to "Children", {:controller => "viewable", :action => "gallery", :category => "Children"}, class: "button radius expand alert" %>
-		        <%= link_to "Pets", {:controller => "viewable", :action => "gallery", :category => "Pets"}, class: "button radius expand alert" %>
-		        <%= link_to "Business", {:controller => "viewable", :action => "gallery", :category => "Business"}, class: "button radius expand alert", style: "margin-bottom:0" %>
-		    </div>
-
-         	<% if current_user %>
-		    	<div class="large-11 large-centered columns" style="margin-top: 45px;">
-			        <%= link_to 'New Image', new_gallery_image_path, class: "button radius expand small" %>
-			    </div>
-		    <% end %>
-		</div>
-		<div class="large-10 columns" style="padding: 15px 0px 0px 40px;">
-
-			<div class="row">				
-          		<% if current_user %>
-					<div class="row">
-						<ul class="large-block-grid-5" style="margin:0">
-							<% @images_by_category.each do |gallery_image| %>
-								<li style="margin: 0; padding: 12px 7px; text-align:center">
-									<div style="height: 130px; text-align: center">
-										<%= link_to image_tag(gallery_image.image, class: "gallery_image", style: "max-height: 120px;"), gallery_image %>
-									</div>
-									<div class="large-6 columns left" style="font-size: 13px;">
-										<div class="large-10 columns large-centered">
-											<%= link_to 'Edit', edit_gallery_image_path(gallery_image), class: "button radius tiny expand secondary" %>
-										</div>
-									</div>
-									<div class="large-6 columns right" style="font-size: 13px;">
-										<div class="large-10 columns large-centered">
-											<%= link_to 'Destroy', gallery_image, method: :delete, data: { confirm: 'Are you sure?' }, class: "button radius alert tiny expand" %>
-										</div>
-									</div>
-								</li>
-							<% end %>
-						</ul>
+	<div class="large-9 columns">
+		<div class="row">
+			<dl class="sub-nav">
+				<dd <% if params[:category] == "Families" %> class="my_active" <% end %> class="sub_nav_header"><a href="Families">Family Portraits</a></dd>
+				<dd <% if params[:category] == "High School Seniors" %> class="my_active" <% end %> class="sub_nav_header"><a href="High School Seniors">High School Seniors</a></dd>
+				<dd <% if params[:category] == "Children" %> class="my_active" <% end %> class="sub_nav_header"><a href="Children">Children</a></dd>
+				<dd <% if params[:category] == "Pets" %> class="my_active" <% end %> class="sub_nav_header"><a href="Pets">Pets</a></dd>
+				<dd <% if params[:category] == "Executive/Profiles" %> class="my_active" <% end %> class="sub_nav_header"><a href="Executive%2FProfiles">Executive / Profiles</a></dd>
+				<% if current_user %>
+					<div class="large-1 right columns">
+						<%= link_to 'Add', new_gallery_image_path, class: "button radius small right expand", style: "margin:0" %>
 					</div>
-				<% else %>
-				 
-					<ul class="large-block-grid-5">
-						<% l = 0 %>
+				<% end %>
+			</dl>
+		</div>
+
+		<div class="row" style="padding: 10px 10px 0px 10px; border: solid 2px #1c0205; border-radius: 4px;">			
+      		<% if current_user %>
+				<div class="row">
+					<ul class="large-block-grid-5" style="margin:0">
 						<% @images_by_category.each do |gallery_image| %>
-							<% l = l+1 %>
-							<li style="margin: 0; padding: 12px 7px; text-align:center; margin-bottom: 20px;">
-								<%= link_to(image_tag(gallery_image.image, class: 'gallery_image', style: "max-height: 120px;"), '#', :'data-reveal-id' => "galleryModal", :'data-orbit-link' => "picture_#{l}" ) %>
+							<li style="margin: 0; padding: 12px 7px; text-align:center">
+								<div style="height: 130px; text-align: center">
+									<%= link_to image_tag(gallery_image.image, class: "gallery_image", style: "max-height: 120px;"), gallery_image %>
+								</div>
+								<div class="large-6 columns left" style="font-size: 13px;">
+									<div class="large-10 columns large-centered">
+										<%= link_to 'Edit', edit_gallery_image_path(gallery_image), class: "button radius tiny expand secondary" %>
+									</div>
+								</div>
+								<div class="large-6 columns right" style="font-size: 13px;">
+									<div class="large-10 columns large-centered">
+										<%= link_to 'Destroy', gallery_image, method: :delete, data: { confirm: 'Are you sure?' }, class: "button radius alert tiny expand" %>
+									</div>
+								</div>
 							</li>
 						<% end %>
-					</ul> 
-
-				<% end %>
-			</div>
+					</ul>
+				</div>
+			<% else %>			 
+				<ul class="large-block-grid-5">
+					<% l = 0 %>
+					<% @images_by_category.each do |gallery_image| %>
+						<% l = l+1 %>
+						<li style="margin: 0; padding: 12px 7px; text-align:center; margin-bottom: 20px;">
+							<%= link_to(image_tag(gallery_image.image, class: 'gallery_image', style: "max-height: 120px;"), '#', :'data-reveal-id' => "galleryModal", :'data-orbit-link' => "picture_#{l}" ) %>
+						</li>
+					<% end %>
+				</ul>
+			<% end %>
 		</div>
+	</div>
+	<div class="large-3 columns" style="padding: 0px 15px;">
+		<% if params[:category] == "Families" %>
+			<h3>Family Portraits</h3>
+		<% elsif params[:category] == "Seniors" %>
+
+		<% elsif params[:category] == "Children" %>
+
+		<% elsif params[:category] == "Pets" %>
+
+		<% elsif params[:category] == "Business" %>
+
+		<% end %>
 	</div>
 </div>
 

@@ -15,6 +15,7 @@
 		@include button-size($padding, $full-width);
 		@include button-style($button-color, $button-font-color);
     	@include single-transition;
+    	font-size: 15px;
 	}
 	& > li { @include button-group-style($radius, $number_of_buttons); }
 }
