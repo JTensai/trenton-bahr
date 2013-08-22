@@ -83,9 +83,15 @@
             <%= f.collection_select :session_type_id, SessionType.all, :id, :name, :prompt => "Select a Session Type" %>
           </div>
           <div class="large-12 columns collapse">
-            <%= f.label :preferred_date, "Preferred Date:" %>
+            <%= f.label :preferred_date_one, "Preferred Dates:" %>
             <div id="date_selector">
-              <%= f.date_select :preferred_date, order: [:month, :day, :year] %>
+              <%= f.date_select :preferred_date_one, order: [:month, :day, :year] %>
+            </div>
+            <div id="date_selector">
+              <%= f.date_select :preferred_date_two, order: [:month, :day, :year], include_blank: true %>
+            </div>
+            <div id="date_selector">
+              <%= f.date_select :preferred_date_three, order: [:month, :day, :year], include_blank: true %>
             </div>
           </div>
           <div class="large-6 columns left">
@@ -108,9 +114,9 @@
             <%= f.select :preferred_time, ['9:00 am', '10:00 am', '11:00 am', '12:00 pm', '1:00 pm', '2:00 pm', '3:00 pm', '4:00 pm'], { :prompt => "Select Time" }, { id: "customDropdown" } %>
           </div>
           <div class="large-12 columns collapse">
-            <%= f.label :preferred_date, "Date:" %>
+            <%= f.label :preferred_date_one, "Date:" %>
             <div id="date_selector">
-              <%= f.date_select :preferred_date, order: [:month, :day, :year] %>
+              <%= f.date_select :preferred_date_one, order: [:month, :day, :year] %>
             </div>
           </div>
         </div>

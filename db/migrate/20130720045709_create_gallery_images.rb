@@ -4,6 +4,7 @@ class CreateGalleryImages < ActiveRecord::Migration
       t.string :image
       t.integer :sort_order
       t.string :category
+      t.string :caption
 
       t.timestamps
     end

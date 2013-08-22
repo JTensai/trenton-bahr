@@ -39,6 +39,14 @@
             <small class="error">Can't be blank</small>
           </div>
         </div>
+        <div class="row">
+          <div class="large-4 columns">
+            <%= f.label :caption, "Caption: ", class: "right", style: "margin-right: 10px;" %>
+          </div>
+          <div class="large-6 columns left">
+            <%= f.text_area :caption, style: "height: 100px;" %>
+          </div>
+        </div>
       </div>
       <div class="large-6 columns">
         <% unless @gallery_image.image.url == nil %>

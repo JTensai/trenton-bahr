@@ -34,11 +34,13 @@ ActiveRecord::Schema.define(:version => 20130730191915) do
     t.string   "contact_time"
     t.time     "preferred_time"
     t.string   "preferred_day"
-    t.date     "preferred_date"
+    t.date     "preferred_date_one"
+    t.date     "preferred_date_two"
+    t.date     "preferred_date_three"
     t.integer  "session_type_id"
     t.string   "auction_type"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   create_table "downloads", :force => true do |t|
@@ -67,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20130730191915) do
     t.string   "image"
     t.integer  "sort_order"
     t.string   "category"
+    t.string   "caption"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

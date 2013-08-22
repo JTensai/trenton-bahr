@@ -75,14 +75,19 @@
     <% end %>
 
     <% if @contact_form.request_type == "Booking" || @contact_form.request_type == "Charity Info" %>
-      <% unless @contact_form.preferred_date == nil || @contact_form.preferred_date == "" %>
+      <% unless @contact_form.preferred_date_one == nil && @contact_form.preferred_date_two == nil && @contact_form.preferred_date_three == nil %>
         <div class="row" style="margin-bottom: 15px;">
           <div class="large-4 columns" style="text-align:right; padding-right: 20px;">
-            <b>Preferred Date:</b>
+            <b>Preferred Dates:</b>
           </div>
           <div class="large-7 columns left">
-            <%#= @contact_form.preferred_date %>
-            <%= @contact_form.preferred_date.strftime("%b %e, %Y") %>
+            <b>1)</b> <%= @contact_form.preferred_date_one.strftime("%b %e, %Y") %>
+            <% unless @contact_form.preferred_date_two == nil %>
+              <br><b>2)</b> <%= @contact_form.preferred_date_two.strftime("%b %e, %Y") %>
+            <% end %>
+            <% unless @contact_form.preferred_date_three == nil %>
+              <br><b>3)</b> <%= @contact_form.preferred_date_three.strftime("%b %e, %Y") %>
+            <% end %>
           </div>
         </div>
       <% end %>

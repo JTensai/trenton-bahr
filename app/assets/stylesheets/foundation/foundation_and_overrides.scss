@@ -18,31 +18,28 @@ $my-button-red: #700B0B;
 
 $primary-color: $accent-teal;
 $alert-color: $accent-red;
+
 $row-width: 1000px;
 $column-gutter: 0px;
 $list-nested-margin: emCalc(0px);
-$clearing-arrow-size: 25px;
-$clearing-active-img-height: 75%;
-// $clearing-carousel-height: 150px;
+
 $clearing-carousel-thumb-width: auto;
 $orbit-timer-bg: rgba(0,0,0,0.2);
 $orbit-slide-number-font-color: rgba(0,0,0,0.3);
 $orbit-container-bg: #fff;
+$orbit-caption-bg: rgba(0,0,0,0);
+// $orbit-caption-font-color: $dark-brown;
+
 $shiny-edge-size: 0 0 0;
 
 // Subnav Variables
-
 $sub-nav-list-margin: 0;
 $sub-nav-list-padding-top: 0;
-
 // We use this to control the definition
-
 $sub-nav-font-size: emCalc(16);
 $sub-nav-font-color: $light-cream;
 $sub-nav-border-radius: 0px;
-
 // We use these to control the active item styles
-
 $sub-nav-active-bg: $heart-red;
 $sub-nav-active-color: $light-cream;
 

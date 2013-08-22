@@ -13,7 +13,9 @@ class CreateContactForms < ActiveRecord::Migration
       t.string :contact_time
       t.time :preferred_time
       t.string :preferred_day
-      t.date :preferred_date
+      t.date :preferred_date_one
+      t.date :preferred_date_two
+      t.date :preferred_date_three
       t.integer :session_type_id
       t.string :auction_type
 
