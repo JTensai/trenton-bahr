@@ -3,44 +3,58 @@
 	h6{text-align:center;}
 </style>
 
+<% [color1 = '#f6f3ea', color2 = '#f3ecdc', color3 = '#1c0205', color4 = '#bb1b1b', color5 = '#5f0f0f', color6 = '#116a78'] %>
+
 <div class="large-12 columns">
 
 	<div class="row">
-		<div class="large-3 columns" id="color_box" style="background-color: #f6f3ea">
-			<h6>Light Cream</h6>
+		<div class="large-3 columns" id="color_box" style="background-color: <%= color1 %>">
+			<h6>Light Cream - <%= color1 %></h6>
 			<li>Page Color</li>
+			
 		</div>
-		<div class="large-3 columns" id="color_box" style="background-color: #f3ecdc">
-			<h6>Darker Cream</h6>
+		<div class="large-3 columns" id="color_box" style="background-color: <%= color2 %>">
+			<h6>Darker Cream - <%= color2 %></h6>
 			<li>Background Color</li>
 		</div>
-		<div class="large-3 columns" id="color_box" style="background-color: #1c0205; color: #f6f3ea">
-			<h6 style="color: #f6f3ea;">Dark Brown</h6>
+		<div class="large-3 columns" id="color_box" style="background-color: <%= color3 %>; color: #f6f3ea">
+			<h6 style="color: #f6f3ea;">Dark Brown - <%= color3 %></h6>
 			<li>Text and Borders?</li>
-
 		</div>
 	</div>
 	<div class="row">
-		<div class="large-3 columns" id="color_box" style="background-color: #bb1b1b; color: #f6f3ea">
-			<h6 style="color: #f6f3ea;">Heart Red</h6>
+		<div class="large-3 columns" id="color_box" style="background-color: <%= color4 %>; color: #f6f3ea">
+			<h6 style="color: #f6f3ea;">Heart Red - <%= color4 %></h6>
 			<li>Not sure</li>
 		</div>
-		<div class="large-3 columns" id="color_box" style="background-color: #5f0f0f; color: #f6f3ea">
-			<h6 style="color: #f6f3ea;">Accent Red</h6>
+		<div class="large-3 columns" id="color_box" style="background-color: <%= color5 %>; color: #f6f3ea">
+			<h6 style="color: #f6f3ea;">Accent Red - <%= color5 %></h6>
 			<li>Buttons</li>
 		</div>
-		<div class="large-3 columns" id="color_box" style="background-color: #116a78; color: #f6f3ea">
-			<h6 style="color: #f6f3ea;">Charity Accent</h6>
+		<div class="large-3 columns" id="color_box" style="background-color: <%= color6 %>; color: #f6f3ea">
+			<h6 style="color: #f6f3ea;">Charity Accent - <%= color6 %></h6>
 			<li>Borders</li>
 			<li>Buttons</li>
 		</div>
 	</div>
 	<br>
 	<br>
-	<h5>Other info:</h5>
-	<ul style="margin-left: 40px;">
-		<li>Rotating Image Size: 1570 x 800 pixels</li>
-	</ul>
+	<div class="large-6 columns">
+		<h5>Other info:</h5>
+		<ul style="margin-left: 40px;">
+			<li>Rotating Image Size: 1570 x 800 pixels</li>
+		</ul>
+	</div>
+	<div class="large-6 columns">
+		<div class="large-8 right columns" style="border: 1px #444 solid; border-radius: 3px;">
+			<h5 style="text-align:center">Downloads</h5>
+			<% @downloads.each do |d| %>
+				<div class="large-10 columns large-centered" style="margin-top: 15px;">
+					<%= link_to d.name, { controller: 'viewable', action: 'download', name: d.name }, class: "button small secondary radius expand" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
 
 
 	

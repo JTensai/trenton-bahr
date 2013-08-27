@@ -1,6 +1,6 @@
 hideAllDivs = ->
   $("#info_fields").hide()
-  $("#booking_fields").hide()
+  $("#reservation_fields").hide()
   $("#charity_fields").hide()
   $("#preferred_date_time").hide()
 
@@ -10,8 +10,8 @@ handleNewSelection = ->
     when "Information"
       $("#info_fields").show()
       $("#comments_text_area").css("height",280)
-    when "Booking"
-      $("#booking_fields").show()
+    when "Reservation"
+      $("#reservation_fields").show()
       $("#comments_text_area").css("height",85)
       $("#preferred_date_time").show()
     when "Charity Info"

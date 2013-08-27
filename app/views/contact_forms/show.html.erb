@@ -74,7 +74,7 @@
       <% end %>
     <% end %>
 
-    <% if @contact_form.request_type == "Booking" || @contact_form.request_type == "Charity Info" %>
+    <% if @contact_form.request_type == "Reservation" || @contact_form.request_type == "Charity Info" %>
       <% unless @contact_form.preferred_date_one == nil && @contact_form.preferred_date_two == nil && @contact_form.preferred_date_three == nil %>
         <div class="row" style="margin-bottom: 15px;">
           <div class="large-4 columns" style="text-align:right; padding-right: 20px;">
@@ -92,7 +92,7 @@
         </div>
       <% end %>
 
-      <% if @contact_form.request_type == "Booking" %>
+      <% if @contact_form.request_type == "Reservation" %>
         <% unless @contact_form.preferred_day == nil || @contact_form.preferred_day == "" %>
           <div class="row" style="margin-bottom: 15px;">
             <div class="large-4 columns" style="text-align:right; padding-right: 20px;">
@@ -119,7 +119,7 @@
 
 
 
-    <% if @contact_form.request_type == "Booking" %>
+    <% if @contact_form.request_type == "Reservation" %>
       <% unless @contact_form.session_type_id == nil || @contact_form.session_type_id == "" %>
         <div class="row" style="margin-bottom: 15px;">
           <div class="large-4 columns" style="text-align:right; padding-right: 20px;">

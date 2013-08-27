@@ -4,8 +4,8 @@
 		<p>Fill out this form and one of our friendly staff members will contact you Monday through Friday between 10:00 AM and 5:00 PM to help you find the perfect time for your Portrait Session.  We look forward to working with you and your family, and thank you for choosing Trenton Bahr Fine Portraiture, America’s Premier Expert in Portrait Photography</p>
 	</div>
 	<div class="large-8 columns right">
-		<div class="large-11 columns large-centered"style="border: solid 1px #1c0205; padding: 20px 10px; border-radius: 10px; box-shadow: 0 0 4px #1c0205; margin-top: 20px;">
-			<%= render 'contact_forms/form', :locals => { contact_form: @contact_form = ContactForm.new, origin: @passed_origin = "contact_page", back: @back_destination = :back, cancel: @can_cancel = false } %>
+		<div class="large-11 columns large-centered"style="border: solid 1px #1c0205; padding: 20px 10px; box-shadow: 0 0 4px #1c0205; margin-top: 20px;">
+			<%= render 'contact_forms/form', contact_form: @contact_form = ContactForm.new, origin: @passed_origin = "contact_page", back: @back_destination = :back, cancel: @can_cancel = false, request_type: "Information" %>
 		</div>
 	</div>
 </div>

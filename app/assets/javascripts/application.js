@@ -16,3 +16,5 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+(function () { var done = false; var script = document.createElement("script"); script.async = true; script.type = "text/javascript"; script.src = "https://www.purechat.com/VisitorWidget/WidgetScript"; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == "loaded" || this.readyState == "complete")) { var w = new PCWidget({ c: '09f0edf6-4e13-4aa6-bfb5-704d8bb3e9a5', f: true }); done = true; } }; })();

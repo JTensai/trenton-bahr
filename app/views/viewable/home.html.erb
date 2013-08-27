@@ -2,11 +2,9 @@
 <% @orbit_options = "animation: fade; bullets: false; navigation_arrows: false; timer_speed: 4000; resume_on_mouseout: true;" %>
 
 <div class="large-12 columns">
-
-	<div class="row">
-		<h5 style="font-style: italic; margin: -15px 0 15px 0; text-align:center;">"This is where the Guarantee will go" <span style="font-size: 13px">-Trenton Bahr</span></h5>
+	<div class="row">		
 		<div class="large-11 columns large-centered">
-			<div class="slideshow-wrapper" style="border: solid 2px #444; height: 454px; box-shadow: 0 0 20px #666; overflow:hidden; white-space:nowrap;">
+			<div class="slideshow-wrapper" style="border: solid 2px #444; box-shadow: 0 0 20px #666; overflow:hidden; white-space:nowrap; max-height: 454px; background-color: #444;">
 				<div class="preloader"></div>
 				<ul data-orbit data-options="<%= @orbit_options %>">
 					<% if @rotating_images == [] %>
@@ -16,14 +14,14 @@
 						<li><%= image_tag('http://placehold.it/884x450/1c0205&text=Placeholder', onContextMenu: "return false;") %></li>
 					<% else %>					
 						<% @rotating_images.each do |r| %>
-							<li><%= image_tag(r.image.url, onContextMenu: "return false;") %></li>
+							<li><%= image_tag(r.image.url, onContextMenu: "return false;", style: "border: solid black 3px;") %></li>
 						<% end %>
 					<% end %>
 				</ul>
 			</div>
 		</div>
 	</div>
-
+<h5 style="font-style: italic; margin: 20px 0 20px 0; text-align:center;">"This is where the Guarantee will go" <span style="font-size: 13px">-Trenton Bahr</span></h5>
 	<div class="row" style="margin-top: 20px;">
 		<div class="large-11 columns large-centered">
 			<div class="large-4 columns">
@@ -54,23 +52,22 @@
 
 	<div class="row" style="margin-top: 10px;">		
 		<div class="large-11 columns large-centered">
-			<!-- Change this to a grid! -->
-			<div class="large-3 columns" style="padding: 10px;">
+			<div class="small-6 large-3 columns" style="padding: 10px;">
 				<div class="large-12 columns">
-					<%= link_to image_tag("families.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Families"} %>
+					<%= link_to image_tag("families.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Family Portraits"} %>
 				</div>
 			</div>
-			<div class="large-3 columns" style="padding: 10px;">
+			<div class="small-6 large-3 columns" style="padding: 10px;">
 				<div class="large-12 columns">
-					<%= link_to image_tag("seniors.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Seniors"} %>
+					<%= link_to image_tag("seniors.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "High School Seniors"} %>
 				</div>
 			</div>
-			<div class="large-3 columns" style="padding: 10px;">
+			<div class="small-6 large-3 columns" style="padding: 10px;">
 				<div class="large-12 columns">
-					<%= link_to image_tag("pets.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Pets"} %>
+					<%= link_to image_tag("pets.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Canine"} %>
 				</div>
 			</div>
-			<div class="large-3 columns" style="padding: 10px;">
+			<div class="small-6 large-3 columns" style="padding: 10px;">
 				<div class="large-12 columns">
 					<%= link_to image_tag("children.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Children"} %>
 				</div>
@@ -79,7 +76,7 @@
 	</div>
 
 	<div class="row" style="margin-top: 40px;">
-		<div class="large-4 columns" style="padding: 5px 20px 5px 10px;">			
+		<div class="large-4 columns" style="padding: 5px 20px">			
 			<div style="border: solid #888 1px; border-radius: 4px; padding: 10px; min-height: 150px;">
 				<% if @seniors.any? %>
 					<% @seniors.each do |s| %>
@@ -111,7 +108,7 @@
 				<% end %>
 			</div>
 		</div>
-		<div class="large-4 columns" style="padding: 5px 10px 5px 20px;">
+		<div class="large-4 columns" style="padding: 5px 20px">
 			<div style="border: solid #888 1px; border-radius: 4px; padding: 10px; min-height: 150px;">
 				<% if @others.any? %>
 					<% @others.each do |o| %>
@@ -130,7 +127,7 @@
 	</div>
 <div id="requestSessionModal" class="reveal-modal" style="top: 15px;">
 	<h3 style="text-align:center">Request Info</h3>
-	<%= render 'contact_forms/form', :locals => { contact_form: @contact_form = ContactForm.new, origin: @passed_origin = "front_page", back: @back_destination = root_path, cancel: @can_cancel = false } %>
+	<%= render 'contact_forms/form', contact_form: @contact_form = ContactForm.new, origin: @passed_origin = "front_page", back: @back_destination = root_path, cancel: @can_cancel = false, request_type: "Reservation" %>
 	<a class="close-reveal-modal">&#215;</a>
 </div>
 </div>

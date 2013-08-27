@@ -3,29 +3,12 @@
 		text-align: justify;
 		margin-bottom: 9px;
 	}
-
-	.videoWrapper {
-	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
-	padding-top: 25px;
-	height: 0;
-	}
-	.videoWrapper iframe {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-	}
 </style>
 
 <div class="large-12 columns">
-
 	<div class="row">
-		<div class="large-4 columns" style="min-height: 350px; padding: 10px 30px 10px 10px;">			
-			<% if @trenton == nil %>
-				<%= image_tag("http://placehold.it/283x350&text=placeholder", style: "box-shadow: 0 0 10px #333;") %>
-			<% elsif @trenton.image.url == nil %>
+		<div class="large-4 columns" style="max-height: 350px; padding: 10px 30px 10px 10px;">			
+			<% if @trenton == nil || @trenton.image.url == nil %>
 				<%= image_tag("http://placehold.it/283x350&text=placeholder", style: "box-shadow: 0 0 10px #333;") %>
 			<% else %>
 				<%= image_tag(@trenton.image.url, style: "box-shadow: 0 0 10px #333;") %>
@@ -33,29 +16,36 @@
 		</div>
 		<div class="large-8 columns" style="min-height: 350px; padding: 10px;">
 			<div id="video_wrapper">
-				<% if @trenton == nil %>
-					<div style="box-shadow: 0 0 10px #333; width: 100%; height: 350px">
-						<%= image_tag("http://placehold.it/626x350&text=Video+Placeholder") %>
-					</div>
-				<% elsif @trenton.video_link == "" %>
-					<div style="box-shadow: 0 0 10px #333; width: 100%; height: 350px">
+				<% if @trenton == nil || @trenton.video_link == "" %>
+					<div style="box-shadow: 0 0 10px #333;">
 						<%= image_tag("http://placehold.it/626x350&text=Video+Placeholder") %>
 					</div>
 				<% else %>
-        			<iframe style="box-shadow: 0 0 10px #333;" width="100%" height="350px" src=<%= @trenton.video_link+"?autoplay=1" %> frameborder="0" allowfullscreen></iframe>
+					<div class="flex-video" style="box-shadow: 0 0 10px #333;">
+        				<iframe src=<%= @trenton.video_link+"?autoplay=1" %> frameborder="0" allowfullscreen></iframe>
+        			</div>
         		<% end %>
         	</div>
 		</div>
 	</div>
-
+	
 	<div class="row" style="margin-top: 5px;">
 		<div class="large-12 columns large-centered" style="padding: 0 20px;">
-			<h3 style="margin-bottom: 10px;">Meet the Artist</h3>
-			<% if @trenton == nil %>
-				<p><b>This is where the text goes.</b><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque, arcu eget pharetra porttitor, purus dui tristique velit, in lobortis libero nibh quis nisl. Cras gravida ipsum eget est sodales, non tristique tortor pellentesque. Nulla tellus sem, rutrum et placerat eget, congue id ipsum.</p>
-			<% else %>
-				<%= render :inline => @trenton.meet_the_artist_text %>
-			<% end %>
+			<div class="large-6 columns">
+				<h3 style="margin-bottom: 10px;">Meet the Artist</h3>
+			</div>
+			<div class="large-6 columns" style="height: 70px; text-align: right;">
+				<%= image_tag("http://placehold.it/60x60&text=1", style: "margin-right: 9px;") %>
+				<%= image_tag("http://placehold.it/60x60&text=2", style: "margin-right: 9px;") %>
+				<%= image_tag("http://placehold.it/60x60&text=3", style: "margin-right: 9px;") %>
+			</div>
+			<div class="large-12 columns" style="margin-top: -18px;">
+				<% if @trenton == nil %>
+					<p><b>This is where the text goes.</b><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque, arcu eget pharetra porttitor, purus dui tristique velit, in lobortis libero nibh quis nisl. Cras gravida ipsum eget est sodales, non tristique tortor pellentesque. Nulla tellus sem, rutrum et placerat eget, congue id ipsum.</p>
+				<% else %>
+					<%= render :inline => @trenton.meet_the_artist_text %>
+				<% end %>
+			</div>
 		</div>
 	</div>
 

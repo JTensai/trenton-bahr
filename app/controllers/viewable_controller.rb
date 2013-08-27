@@ -24,7 +24,6 @@ class ViewableController < ApplicationController
 
     def session_information
     	@session_info = SessionInfo.first
-    	@downloads = Download.all(order: 'name')
     end
 
     def download
@@ -56,7 +55,7 @@ class ViewableController < ApplicationController
     end
 
     def colors
-    	
+    	@downloads = Download.all(order: 'name')
     end
 
 end

@@ -1,5 +1,5 @@
 class ContactFormsController < ApplicationController
-  before_filter :authorize
+  before_filter :authorize, except: [:new, :create]
   # GET /contact_forms
   # GET /contact_forms.json
   def index

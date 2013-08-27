@@ -1,4 +1,3 @@
-
 <%= form_for @contact_form, html: {:class => "custom", :'data-abide' => ''} do |f| %>
   <% if @contact_form.errors.any? %>
     <div id="error_explanation">
@@ -70,14 +69,20 @@
         <div class="row">
           <div class="large-12 columns left">
             <%= f.label :request_type, "Request:" %>
-            <%= f.select :request_type, ['Information', 'Booking', 'Charity Info'], { :default => "Information" }, { id: "customDropdown", class: "request_type_dropdown", required:'' } %>
+            <% if request_type == "Reservation" %>
+              <%= f.select :request_type, ['Reservation', 'Information', 'Charity Info'], { :default => "Reservation" }, { id: "customDropdown", class: "request_type_dropdown", required:'' } %>
+            <% elsif request_type == "Charity Info" %>
+              <%= f.select :request_type, ['Charity Info', 'Reservation', 'Information'], { :default => "Charity Info" }, { id: "customDropdown", class: "request_type_dropdown", required:'' } %>
+            <% else %>
+              <%= f.select :request_type, ['Information', 'Reservation', 'Charity Info'], { :default => "Charity Info" }, { id: "customDropdown", class: "request_type_dropdown", required:'' } %>
+            <% end %>
           </div>
-        </div> 
+        </div>
 
         <div class="row" id="info_fields"> 
         </div>
 
-        <div class="row" id="booking_fields" style="display:none;">
+        <div class="row" id="reservation_fields" style="display:none;">
           <div class="large-12 columns left">
             <%= f.label :session_type_id, "Session Type:" %>
             <%= f.collection_select :session_type_id, SessionType.all, :id, :name, :prompt => "Select a Session Type" %>

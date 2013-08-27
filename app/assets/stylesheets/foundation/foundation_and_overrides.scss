@@ -18,6 +18,7 @@ $my-button-red: #700B0B;
 
 $primary-color: $accent-teal;
 $alert-color: $accent-red;
+$global-radius: 0px;
 
 $row-width: 1000px;
 $column-gutter: 0px;
@@ -37,7 +38,7 @@ $sub-nav-list-margin: 0;
 $sub-nav-list-padding-top: 0;
 // We use this to control the definition
 $sub-nav-font-size: emCalc(16);
-$sub-nav-font-color: $light-cream;
+$sub-nav-font-color: $dark-brown;
 $sub-nav-border-radius: 0px;
 // We use these to control the active item styles
 $sub-nav-active-bg: $heart-red;

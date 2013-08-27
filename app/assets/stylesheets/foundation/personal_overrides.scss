@@ -20,6 +20,38 @@
 	& > li { @include button-group-style($radius, $number_of_buttons); }
 }
 
+.gallery_button_group{	@include button-group-container;
+	$padding: $button-sml;
+	$radius: false;
+	$full-width: true;
+	$button-font-color: #444; // will only change color if the background is dark
+	$button-border-width: 0px;
+	$button-color: #f3ecdc;
+	$button-font-weight: normal;
+	
+	.gallery_tab_button{ 
+		@include button-base();
+		@include button-size($padding, $full-width);
+		@include button-style($button-color, $button-font-color);
+    	@include single-transition;
+    	font-size: 16px;
+		border: solid 2px #1c0205;
+		margin: 0;
+		border-bottom: 0;
+		height: 32px;
+		padding: 6px 0;
+	}
+
+	:not(:first-child) a {
+		border-left:0;
+	}
+
+	#gallery_tab_active > a {
+		background-color: #5f0f0f;
+		color: #fff;
+	}
+}
+
 $lightGray: #999;
 $red: red;
 
