@@ -7,50 +7,57 @@
 
 <div class="large-12 columns">
 	<div class="row">
-		<div class="large-4 columns" style="max-height: 350px; padding: 10px 30px 10px 10px;">			
+		<div class="small-8 large-4 small-centered large-uncentered columns" style="max-height: 370px; padding: 10px; text-align:center;">
 			<% if @trenton == nil || @trenton.image.url == nil %>
 				<%= image_tag("http://placehold.it/283x350&text=placeholder", style: "box-shadow: 0 0 10px #333;") %>
 			<% else %>
 				<%= image_tag(@trenton.image.url, style: "box-shadow: 0 0 10px #333;") %>
 			<% end %>
 		</div>
-		<div class="large-8 columns" style="min-height: 350px; padding: 10px;">
+		<div class="large-8 small-12 small-centered large-uncentered columns" style="max-height: 370px; padding: 10px; text-align:center;">
 			<div id="video_wrapper">
 				<% if @trenton == nil || @trenton.video_link == "" %>
-					<div style="box-shadow: 0 0 10px #333;">
-						<%= image_tag("http://placehold.it/626x350&text=Video+Placeholder") %>
+					<div>
+						<%= image_tag("http://placehold.it/626x350&text=Video+Placeholder", style: "box-shadow: 0 0 10px #333;") %>
 					</div>
 				<% else %>
-					<div class="flex-video" style="box-shadow: 0 0 10px #333;">
-        				<iframe src=<%= @trenton.video_link+"?autoplay=1" %> frameborder="0" allowfullscreen></iframe>
-        			</div>
-        		<% end %>
-        	</div>
+					<div class="flex-video">
+    				<iframe src=<%= @trenton.video_link+"?autoplay=1" %> frameborder="0" allowfullscreen style="box-shadow: 0 0 10px #333;"></iframe>
+    			</div>
+    		<% end %>
+    	</div>
 		</div>
 	</div>
 	
 	<div class="row" style="margin-top: 5px;">
 		<div class="large-12 columns large-centered" style="padding: 0 20px;">
-			<div class="large-6 columns">
-				<h3 style="margin-bottom: 10px;">Meet the Artist</h3>
+
+			<div class="small-6 columns right" style="height: 50px; text-align: right;">
+				<div class="small-4 large-2 columns right" style="padding-right: 9px;">
+					<%= image_tag("http://placehold.it/60x60&text=1") %>
+				</div>
+				<div class="small-4 large-2 columns right" style="padding-right: 9px;">
+					<%= image_tag("http://placehold.it/60x60&text=2") %>
+				</div>
+				<div class="small-4 large-2 columns right" style="padding-right: 9px;">
+					<%= image_tag("http://placehold.it/60x60&text=3") %>
+				</div>				
 			</div>
-			<div class="large-6 columns" style="height: 70px; text-align: right;">
-				<%= image_tag("http://placehold.it/60x60&text=1", style: "margin-right: 9px;") %>
-				<%= image_tag("http://placehold.it/60x60&text=2", style: "margin-right: 9px;") %>
-				<%= image_tag("http://placehold.it/60x60&text=3", style: "margin-right: 9px;") %>
+			<div class="large-6 columns">
+				<h3 style="margin-bottom: 25px;">Meet the Artist</h3>
 			</div>
 			<div class="large-12 columns" style="margin-top: -18px;">
-				<% if @trenton == nil %>
-					<p><b>This is where the text goes.</b><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque, arcu eget pharetra porttitor, purus dui tristique velit, in lobortis libero nibh quis nisl. Cras gravida ipsum eget est sodales, non tristique tortor pellentesque. Nulla tellus sem, rutrum et placerat eget, congue id ipsum.</p>
-				<% else %>
+				<% unless @trenton == nil || @trenton.meet_the_artist_text == "" %>
 					<%= render :inline => @trenton.meet_the_artist_text %>
+				<% else %>
+					<p><b>This is where the text goes.</b><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque, arcu eget pharetra porttitor, purus dui tristique velit, in lobortis libero nibh quis nisl. Cras gravida ipsum eget est sodales, non tristique tortor pellentesque. Nulla tellus sem, rutrum et placerat eget, congue id ipsum.</p>
 				<% end %>
 			</div>
 		</div>
 	</div>
 
 	<% if current_user %>
-		<div class="row" style="margin-top: 45px;">
+		<div class="row" style="margin-top: 15px;">
 			<div class="large-3 large-centered columns">
 				<% if @trenton == nil %>
 					<%= link_to 'Set Up Page', new_trenton_path, class: "button radius expand" %>
@@ -60,4 +67,44 @@
 			</div>
 		</div>
 	<% end %>
+
+	<div class="row" style="margin-top: 25px; padding: 10px;">
+		<div class="row" style="margin: 0 10px;">
+			<div class="large-6 columns">
+				<h3 style="margin:0">Meet the Staff</h3>
+			</div>
+			<% if current_user %>
+				<div class="large-2 columns right" style="margin-top: 3px;">
+					<%= link_to 'New Employee', new_employee_path, class: "button radius expand small", style:"margin:0" %>
+				</div>
+				<div class="large-2 columns right" style="margin: 3px 10px 0 0;">
+					<%= link_to 'View All', employees_path, class: "button secondary radius expand small", style:"margin:0" %>
+				</div>
+			<% end %>
+		</div>
+		<% @employees.each do |employee| %>
+			<div class="large-6 columns" style="padding: 10px;">
+		    <div class="large-12 columns" style="border: 1px solid #777; height: 132px; background-color: #fff;">
+		      <div class="large-3 columns">
+		        <%= image_tag(employee.image, style: "box-shadow: 0 0 4px #444; vertical-align:middle") %>
+		      </div>
+		      <div class="large-9 columns" style="padding: 5px 10px 5px 0;">
+		        <h5 style="font-size: 18px; text-align:center; margin:0"><%= employee.name %>
+		        <h6 style="font-size: 14px; text-align:center; margin:0; font-style: italic;"><%= employee.job_title %></h6>
+		        <p style="margin-top: 7px; text-align:justify; line-height: 20px;"><%= employee.description %></p>
+		      </div>
+		    </div>
+		    <% if current_user %>
+			    <div class="large-6 columns large-centered" style="margin-top:145px;">
+			      <div class="large-5 columns">
+			        <%= link_to 'Edit', edit_employee_path(employee), class: "button radius secondary expand small" %>
+			      </div>
+			      <div class="large-5 columns right">
+			        <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' }, class: "button radius alert expand small" %>
+			      </div>
+			    </div>
+			  <% end %>
+		  </div>
+		<% end %>
+	</div>
 </div>

@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class TrentonUploader < CarrierWave::Uploader::Base
+class EmployeesUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -11,13 +11,13 @@ class TrentonUploader < CarrierWave::Uploader::Base
   storage :fog
 
   def fog_directory
-    'trenton-pics'
+    'employee-images'
   end
 
   # Override the directory where uploaded files will be stored.
-  # This is a sensible default for uploaders that are meant to be mounted:
+  # # This is a sensible default for uploaders that are meant to be mounted:
   # def store_dir
-  #   "trenton-pics"
+  #   "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   # end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -28,10 +28,8 @@ class TrentonUploader < CarrierWave::Uploader::Base
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
 
-  process :resize_to_fit => [300, 350]
-
   # Process files as they are uploaded:
-  # process :scale => [200, 300]
+  process :resize_to_fill => [100, 130, gravity = 'Center']
   #
   # def scale(width, height)
   #   # do something
@@ -51,7 +49,7 @@ class TrentonUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
-  #   "trenton_pic.#{file.extension}" if original_filename
+  #   "something.jpg" if original_filename
   # end
 
 end

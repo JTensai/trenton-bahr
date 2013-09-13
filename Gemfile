@@ -29,7 +29,7 @@ gem 'jquery-rails'
 
 gem 'thin'
 
-gem 'mini_magick', :git => 'git://github.com/minimagick/minimagick.git', :ref => '6d0f8f953112cce6324a524d76c7e126ee14f392'
+gem 'mini_magick'
 gem "carrierwave"
 gem "fog"
 

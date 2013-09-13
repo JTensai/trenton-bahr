@@ -30,7 +30,7 @@
 						<% @images_by_category.each do |gallery_image| %>
 							<li style="margin: 0; padding: 12px 7px; text-align:center">
 								<div style="height: 130px; text-align: center">
-									<%= link_to image_tag(gallery_image.image, class: "gallery_image", style: "max-height: 120px;"), gallery_image %>
+									<%= link_to image_tag(gallery_image.image.url(:thumb), class: "gallery_image", style: "max-height: 120px;"), gallery_image %>
 								</div>
 								<div class="large-6 columns left" style="font-size: 13px;">
 									<div class="large-10 columns large-centered">
@@ -52,7 +52,7 @@
 					<% @images_by_category.each do |gallery_image| %>
 						<% l = l+1 %>
 						<li style="margin: 0; padding: 12px 7px; text-align:center; margin-bottom: 20px;">
-							<%= link_to(image_tag(gallery_image.image, class: 'gallery_image', style: "max-height: 120px;"), '#', :'data-reveal-id' => "galleryModal", :'data-orbit-link' => "picture_#{l}" ) %>
+							<%= link_to(image_tag(gallery_image.image.url(:thumb), class: 'gallery_image', style: "max-height: 120px;"), '#', :'data-reveal-id' => "galleryModal", :'data-orbit-link' => "picture_#{l}" ) %>
 						</li>
 					<% end %>
 				</ul>
@@ -76,11 +76,14 @@
 		<% elsif params[:category] == "Children" %>
 			<h5 style="text-align:center">Children</h5>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque.</p>
-		<% elsif params[:category] == "Pets" %>
-			<h5 style="text-align:center">Pets</h5>
+		<% elsif params[:category] == "Canine" %>
+			<h5 style="text-align:center">Canines</h5>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque.</p>
-		<% elsif params[:category] == "Executive/Profiles" %>
-			<h5 style="text-align:center">Executives / Profiles</h5>
+		<% elsif params[:category] == "PR Portraits" %>
+			<h5 style="text-align:center">PR Portraits</h5>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque.</p>
+		<% elsif params[:category] == "The Sixth" %>
+			<h5 style="text-align:center">The Sixth</h5>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque.</p>
 		<% end %>
 	</div>
@@ -94,10 +97,10 @@
 			<% s = s+1 %>
 			<li style="padding: 10px;" data-orbit-slide="<%= "picture_#{s}" %>">
 				
-				<%= image_tag(gallery_image.image, style:"margin: 0 auto 0px auto; box-shadow: 0 0 8px #555; max-height: 550px;", onContextMenu: "return false;") %>
+				<%= image_tag(gallery_image.image, style:"margin: 0 auto 0px auto; box-shadow: 0 0 8px #555; max-height: 500px;", onContextMenu: "return false;") %>
 				<% unless gallery_image.caption == "" %>
-					<div class="orbit-caption" style="text-align:center; position: relative; margin: 10px auto; font-size: 16px; max-width: 700px;">
-						<h6 style="background-color: rgba(0,0,0,0.5); color: #fff; font-weight: normal; padding: 10px 40px; box-shadow: inset 0 1px 2px #fff; border-radius: 15px;"><%= gallery_image.caption %></h6>
+					<div class="orbit-caption" style="text-align:center; position: relative; margin: 10px auto; font-size: 16px; max-width: 900px;">
+						<h6 style="color: #333; font-weight: normal; padding: 10px 40px;"><%= gallery_image.caption %></h6>
 					</div>
 				<% end %>
 				

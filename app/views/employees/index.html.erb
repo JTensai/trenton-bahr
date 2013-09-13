@@ -1,0 +1,30 @@
+<h3 style="text-align:center;">Listing Employees</h3>
+
+<div class="row">
+  <div class="large-3 large-centered columns">
+      <%= link_to 'New Employee', new_employee_path, class: "button radius expand small" %>
+  </div>
+</div>
+
+<% @employees.each do |employee| %>
+  <div class="large-6 columns" style="padding: 10px;">
+    <div class="large-12 columns" <% if employee.current == true %>style="border: 1px solid #777; height: 132px; background-color: #fff;"<% else %> style="border: 1px solid #BA0404; height: 132px; background-color: #FFD4D4; overflow: hidden" <% end %>>
+      <div class="large-3 columns">
+        <%= image_tag(employee.image, style: "box-shadow: 0 0 4px #444; vertical-align:middle") %>
+      </div>
+      <div class="large-9 columns" style="padding: 5px 10px 5px 0;">
+        <h5 style="font-size: 18px; text-align:center; margin:0">(<%= employee.sort_order %>) <%= employee.name %>
+        <h6 style="font-size: 14px; text-align:center; margin:0; font-style: italic;"><%= employee.job_title %></h6>
+        <p style="margin-top: 7px; text-align:justify; line-height: 20px;"><%= employee.description %></p>
+      </div>
+    </div>
+    <div class="large-8 columns large-centered" style="margin-top:150px;">
+      <div class="large-5 columns">
+        <%= link_to 'Edit', edit_employee_path(employee), class: "button radius secondary expand small" %>
+      </div>
+      <div class="large-5 columns right">
+        <%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' }, class: "button radius alert expand small" %>
+      </div>
+    </div>
+  </div>
+<% end %>

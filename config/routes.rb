@@ -16,6 +16,7 @@ TrentonBahr::Application.routes.draw do
   match 'gallery/:category' => "viewable#gallery"
 
   match 'viewable/download'
+  match 'viewable/newsletter'
 
   resources :contact_forms
   resources :rotating_images
@@ -30,6 +31,8 @@ TrentonBahr::Application.routes.draw do
   resources :users
   resources :sessions
   resources :our_charities
+  resources :employees
+  resources :newsletters
 
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'

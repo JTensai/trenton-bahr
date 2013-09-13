@@ -1,0 +1,36 @@
+<h3 style="text-align:center;">Newsletters</h3>
+
+<div class="row">
+  <div class="large-3 large-centered columns">
+      <%= link_to 'New Newsletter', new_newsletter_path, class: "button radius expand small" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-7 large-centered columns" style="text-align:center;">   
+    <p>Whichever Newsletter File was last modified (the one at the top of the list below), will be the newsletter that people will be downloading</p>
+  </div>
+</div>
+
+<div class="row">
+  <table style="margin: 30px auto 0 auto;">
+    <tr>
+      <th>File</th>
+      <th>Description</th>
+      <th>Date Modified</th>
+      <th>Actions</th>
+    </tr>
+
+    <% @newsletters.each do |newsletter| %>
+      <tr>
+        <td style="width: 250px; text-align:center;"><%= File.basename(newsletter.file.to_s) %></td>
+        <td style="width: 400px; text-align:center;"><b><%= newsletter.description %></b></td>
+        <td style="width: 175px; text-align:center;"><%= newsletter.updated_at.strftime("%B %e, %Y") %></td>
+        <td style="width: 118px; text-align:center;">
+          <%= link_to 'Edit', edit_newsletter_path(newsletter), class: "tiny button radius secondary", style:"margin: 5px 0;" %>
+          <%= link_to 'Destroy', newsletter, method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny button radius alert", style:"margin: 0;" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
