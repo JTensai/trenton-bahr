@@ -1,7 +1,11 @@
-<div class="large-4 columns large-centered" style="padding: 5px 10px 5px 20px;">
-	<div style="border: solid #888 1px; border-radius: 4px; padding: 10px; min-height: 200px;">
-		<blockquote><%= @testimonial.testimonial %>
-		<cite><%= @testimonial.firstname %></cite><blockquote>
+<div class="large-4 columns large-centered quote" style="padding: 5px 10px 5px 20px;">
+	<div style="border: solid #888 1px; border-radius: 4px; padding: 10px; min-height: 100px; line-height: 24px;">
+		<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
+      <%= @testimonial.testimonial %>
+    <h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
+		<br><p style="font-style: italic; text-align: right; margin: 0 30px 0 0">
+      -<%= @testimonial.firstname %>
+    </p>
 	</div>
   <div class="row" style="margin-top: 25px;">
     <div class="large-11 large-centered columns"> 

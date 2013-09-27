@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+if GalleryImageCategory.first == nil
+  g = GalleryImageCategory.create(name: "Family", sort_order: 1, description: "Family Description")
+end

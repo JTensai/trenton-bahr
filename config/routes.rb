@@ -1,5 +1,14 @@
 TrentonBahr::Application.routes.draw do
 
+  resources :gallery_image_categories
+
+
+  resources :packages
+
+
+  resources :addons
+
+
   root :to => 'viewable#home'
 
   get 'home', to: 'viewable#home'
@@ -14,6 +23,7 @@ TrentonBahr::Application.routes.draw do
 
 
   match 'gallery/:category' => "viewable#gallery"
+  match 'gallery_top_text/:category' => "viewable#gallery_top_text"
 
   match 'viewable/download'
   match 'viewable/newsletter'

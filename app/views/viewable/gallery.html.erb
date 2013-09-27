@@ -1,91 +1,63 @@
-<div class="large-12 columns">
-	<div class="large-9 columns">
-		<div class="row">
-            <div class="gallery_button_group">
-              <div class="large-2 columns" <% if params[:category] == "Family Portraits" %>id="gallery_tab_active"<% end %>>
-              	<%= link_to "Family Portraits", "Family Portraits", class: "gallery_tab_button" %>
-              </div>
-              <div class="large-2 columns" <% if params[:category] == "High School Seniors" %>id="gallery_tab_active"<% end %>>
-              	<%= link_to "H.S. Seniors", "High School Seniors", class: "gallery_tab_button" %>
-              </div>
-              <div class="large-2 columns" <% if params[:category] == "Children" %>id="gallery_tab_active"<% end %>>
-              	<%= link_to "Children", "Children", class: "gallery_tab_button" %>
-              </div>
-              <div class="large-2 columns" <% if params[:category] == "Canine" %>id="gallery_tab_active"<% end %>>
-              	<%= link_to "Canine", "Canine", class: "gallery_tab_button" %>
-              </div>
-              <div class="large-2 columns" <% if params[:category] == "PR Portraits" %>id="gallery_tab_active"<% end %>>
-              	<%= link_to "PR Portraits", "PR Portraits", class: "gallery_tab_button" %>
-              </div>
-              <div class="large-2 columns" <% if params[:category] == "The Sixth" %>id="gallery_tab_active"<% end %>>
-              	<%= link_to "The Sixth", "The Sixth", class: "gallery_tab_button" %>
-              </div>
-            </div>
-		</div>
-
-		<div class="row" style="padding: 10px 20px 0px 20px; border: solid 2px #1c0205; min-height: 400px;">			
-      		<% if current_user %>
-				<div class="row">
-					<ul class="large-block-grid-5" style="margin:0">
-						<% @images_by_category.each do |gallery_image| %>
-							<li style="margin: 0; padding: 12px 7px; text-align:center">
-								<div style="height: 130px; text-align: center">
-									<%= link_to image_tag(gallery_image.image.url(:thumb), class: "gallery_image", style: "max-height: 120px;"), gallery_image %>
-								</div>
-								<div class="large-6 columns left" style="font-size: 13px;">
-									<div class="large-10 columns large-centered">
-										<%= link_to 'Edit', edit_gallery_image_path(gallery_image), class: "button radius tiny expand secondary" %>
-									</div>
-								</div>
-								<div class="large-6 columns right" style="font-size: 13px;">
-									<div class="large-10 columns large-centered">
-										<%= link_to 'Destroy', gallery_image, method: :delete, data: { confirm: 'Are you sure?' }, class: "button radius alert tiny expand" %>
-									</div>
-								</div>
-							</li>
-						<% end %>
-					</ul>
+<div class="row">
+	<div class="large-12 columns">
+		<div class="gallery_button_group">
+			<% @categories.each do |c| %>
+				<div class="large-2 columns left" <% if params[:category] == c.name %>id="gallery_tab_active"<% end %>>
+					<%= link_to c.name, c.name, class: "gallery_tab_button" %>
 				</div>
-			<% else %>			 
-				<ul class="large-block-grid-5">
-					<% l = 0 %>
-					<% @images_by_category.each do |gallery_image| %>
-						<% l = l+1 %>
-						<li style="margin: 0; padding: 12px 7px; text-align:center; margin-bottom: 20px;">
-							<%= link_to(image_tag(gallery_image.image.url(:thumb), class: 'gallery_image', style: "max-height: 120px;"), '#', :'data-reveal-id' => "galleryModal", :'data-orbit-link' => "picture_#{l}" ) %>
-						</li>
-					<% end %>
-				</ul>
 			<% end %>
+    </div>
+	</div>   
+</div>
+<div class="row" style="padding: 10px 20px 0px 20px; border: solid 2px #1c0205;">			
+	<% if current_user %>
+		<div class="row" style="min-height: 400px;">
+			<ul class="large-block-grid-5" style="margin:0">
+				<% @images_by_category.each do |gallery_image| %>
+					<li style="margin: 0; padding: 12px 7px; text-align:center">
+						<div style="height: 130px; text-align: center">
+							<%= link_to image_tag(gallery_image.image.url(:thumb), class: "gallery_image", style: "max-height: 120px;"), gallery_image %>
+						</div>
+						<div class="large-6 columns left" style="font-size: 13px;">
+							<div class="large-10 columns large-centered">
+								<%= link_to 'Edit', edit_gallery_image_path(gallery_image), class: "button radius tiny expand secondary" %>
+							</div>
+						</div>
+						<div class="large-6 columns right" style="font-size: 13px;">
+							<div class="large-10 columns large-centered">
+								<%= link_to 'Destroy', gallery_image, method: :delete, data: { confirm: 'Are you sure?' }, class: "button radius alert tiny expand" %>
+							</div>
+						</div>
+					</li>
+				<% end %>
+			</ul>
 		</div>
-	</div>
-	<div class="large-3 columns" style="height: 40px;">		
-		<% if current_user %>
-			<div class="large-8 large-centered columns">
-				<%= link_to 'Add Photo', new_gallery_image_path, class: "button radius small right expand", style: "margin:0" %>
+		<div class="row">
+			<div class="large-4 columns large-centered" style="height: 40px;">		
+				<% if current_user %>
+					<div class="large-8 large-centered columns">
+						<%= link_to 'Add Photo', new_gallery_image_path, class: "button radius small right expand", style: "margin:0" %>
+					</div>
+				<% end %>
 			</div>
-		<% end %>
-	</div>
-	<div class="large-3 columns" style="padding: 0px 15px; text-align: justify">
-		<% if params[:category] == "Family Portraits" %>
-			<h5 style="text-align:center">Family Portraits</h5>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque.</p>
-		<% elsif params[:category] == "High School Seniors" %>
-			<h5 style="text-align:center">High School Seniors</h5>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque.</p>
-		<% elsif params[:category] == "Children" %>
-			<h5 style="text-align:center">Children</h5>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque.</p>
-		<% elsif params[:category] == "Canine" %>
-			<h5 style="text-align:center">Canines</h5>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque.</p>
-		<% elsif params[:category] == "PR Portraits" %>
-			<h5 style="text-align:center">PR Portraits</h5>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque.</p>
-		<% elsif params[:category] == "The Sixth" %>
-			<h5 style="text-align:center">The Sixth</h5>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nisi vel justo laoreet suscipit. Cras molestie sapien ligula, ut consectetur sapien scelerisque non. Mauris ornare vestibulum tempor. Donec sit amet enim suscipit, pulvinar orci id, vestibulum eros. Maecenas ac diam rhoncus quam tincidunt auctor. Suspendisse et odio vitae erat volutpat dapibus ut aliquet tortor. Mauris pellentesque.</p>
-		<% end %>
+		</div>
+	
+	<% else %>			 
+		<ul class="large-block-grid-5" style="min-height: 400px;">
+			<% l = 0 %>
+			<% @images_by_category.each do |gallery_image| %>
+				<% l = l+1 %>
+				<li style="margin: 0; padding: 12px 7px; text-align:center; margin-bottom: 20px;">
+					<%= link_to(image_tag(gallery_image.image.url(:thumb), class: 'gallery_image', style: "max-height: 120px;"), '#', :'data-reveal-id' => "galleryModal", :'data-orbit-link' => "picture_#{l}" ) %>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+</div>
+<div class="row">
+	<div class="large-11 columns large-centered" style="text-align: justify">
+		<h5 style="text-align:center"><%= GalleryImageCategory.find_by_name(params[:category]).name %></h5>
+		<p><%= GalleryImageCategory.find_by_name(params[:category]).description %></p>
 	</div>
 </div>
 

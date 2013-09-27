@@ -5,6 +5,7 @@ class CreateGalleryImages < ActiveRecord::Migration
       t.integer :sort_order
       t.string :category
       t.string :caption
+      t.integer :gallery_image_category_id
 
       t.timestamps
     end

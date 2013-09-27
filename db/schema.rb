@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130913014004) do
+ActiveRecord::Schema.define(:version => 20130922031312) do
+
+  create_table "addons", :force => true do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.text     "details"
+    t.boolean  "active"
+    t.integer  "sort_order"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "charity_of_the_months", :force => true do |t|
     t.string   "header_image"
@@ -76,13 +86,23 @@ ActiveRecord::Schema.define(:version => 20130913014004) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "gallery_image_categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "sort_order"
+    t.text     "description"
+    t.string   "image"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "gallery_images", :force => true do |t|
     t.string   "image"
     t.integer  "sort_order"
     t.string   "category"
     t.string   "caption"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "gallery_image_category_id"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "newsletters", :force => true do |t|
@@ -94,6 +114,21 @@ ActiveRecord::Schema.define(:version => 20130913014004) do
 
   create_table "our_charities", :force => true do |t|
     t.string   "name"
+    t.integer  "sort_order"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "package_addons", :force => true do |t|
+    t.integer  "addon_id"
+    t.integer  "package_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "packages", :force => true do |t|
+    t.string   "name"
+    t.integer  "price"
     t.integer  "sort_order"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

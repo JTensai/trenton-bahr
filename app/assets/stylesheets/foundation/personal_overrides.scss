@@ -1,14 +1,16 @@
-@import "foundation/variables", "foundation/components/global", "foundation/components/buttons", "foundation/components/button-groups";
+@import "foundation/variables", "foundation/components/global", "foundation/components/buttons", "foundation/components/button-groups", "foundation/components/reveal";
 
-.menu_button_group{	@include button-group-container; 
+.menu_button_group{	
+	@include button-group-container; 
 	$number_of_buttons: 6;
 	$padding: $button-sml;
 	$radius: false;
 	$full-width: true;
 
 	$button-font-color: #444; // will only change color if the background is dark
+	$button-font-family: Georgia, serif;
 	$button-border-width: 0px;
-	$button-color: #f3ecdc;
+	$button-color: #DBC7A9;
 	$button-font-weight: bold;
 	.menu_button{ 
 		@include button-base();
@@ -20,7 +22,8 @@
 	& > li { @include button-group-style($radius, $number_of_buttons); }
 }
 
-.gallery_button_group{	@include button-group-container;
+.gallery_button_group{	
+	@include button-group-container;
 	$padding: $button-sml;
 	$radius: false;
 	$full-width: true;
@@ -33,8 +36,8 @@
 		@include button-base();
 		@include button-size($padding, $full-width);
 		@include button-style($button-color, $button-font-color);
-    	@include single-transition;
-    	font-size: 16px;
+  	@include single-transition;
+  	font-size: 16px;
 		border: solid 2px #1c0205;
 		margin: 0;
 		border-bottom: 0;
@@ -62,4 +65,3 @@ $red: red;
     	font-weight:bold;
     }
 }
-

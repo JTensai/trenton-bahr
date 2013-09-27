@@ -21,8 +21,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails' # you need this or you get an err
-  gem 'zurb-foundation', '~> 4.3.1' #use this when they fix orbit
-  # gem 'zurb-foundation', '~> 4.2.3'
+  gem 'zurb-foundation', '~> 4.3.1'
 end
 
 gem 'jquery-rails'
@@ -36,14 +35,6 @@ gem "fog"
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+gem 'google-analytics-rails'
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+gem "stripe"

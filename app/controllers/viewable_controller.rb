@@ -6,7 +6,8 @@ class ViewableController < ApplicationController
 		@families = Testimonial.where(live: true).where(category: "Families").sample(n=1)
 		@others = Testimonial.where(live: true).where(category: "Others").sample(n=1)
         @downloads = Download.all(order: 'name')
-        @rotating_images = RotatingImage.where(live: true).all(order: "sort_order")  
+        @rotating_images = RotatingImage.where(live: true).all(order: "sort_order")
+        @categories = GalleryImageCategory.all(order: :sort_order, limit: 4) 
 	end
 
     def newsletter
@@ -30,7 +31,12 @@ class ViewableController < ApplicationController
 	end
 
     def gallery
-    	@images_by_category = GalleryImage.find_all_by_category(params[:category].gsub('/','%2F'), order: "sort_order")    	
+    	@images_by_category = GalleryImage.find_all_by_category(params[:category].gsub('/','%2F'), order: "sort_order")
+        @categories = GalleryImageCategory.all(order: :sort_order, :limit => 6)
+    end
+
+    def gallery_top_text
+        @images_by_category = GalleryImage.find_all_by_category(params[:category].gsub('/','%2F'), order: "sort_order")     
     end
 
     def session_information

@@ -1,0 +1,23 @@
+<p>
+  <b>Name:</b>
+  <%= @addon.name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @addon.price %>
+</p>
+
+<p>
+  <b>Details:</b>
+  <%= @addon.details %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @addon.active %>
+</p>
+
+
+<%= link_to 'Edit', edit_addon_path(@addon) %> |
+<%= link_to 'Back', addons_path %>

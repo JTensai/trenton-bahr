@@ -61,7 +61,8 @@
 			</div>
 		</div>
 	</div>
-	<h5 style="font-style: italic; margin: 20px 0 20px 0; text-align:center;">"This is where the Guarantee will go" <span style="font-size: 13px">-Trenton Bahr</span></h5>
+	<h5 style="font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-style: italic; margin: 20px 0 20px 0; text-align:center;">"This is where the Guarantee will go (New Font)" <span style="font-size: 13px">-Trenton Bahr</span></h5>
+	<h5 style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-style: italic; margin: 20px 0 20px 0; text-align:center;">"This is where the Guarantee will go (Old Font)" <span style="font-size: 13px">-Trenton Bahr</span></h5>
 	<div class="row" style="margin-top: 20px;">
 		<div class="large-11 columns large-centered">
 			<div class="large-4 columns">
@@ -80,6 +81,13 @@
 			<div class="large-4 columns">
 				<div class="large-12 large-centered" style="height: 50px; text-align:center">
 					<%= link_to "Request Session", 'javascript:;', { class: "button alert", :'data-reveal-id' => "requestSessionModal", style: "width: 190px;" } %>
+					<% content_for :modals do %>
+						<div id="requestSessionModal" class="reveal-modal">
+							<h3 style="text-align:center">Request Info</h3>
+							<%= render 'contact_forms/form', contact_form: @contact_form = ContactForm.new, origin: @passed_origin = "front_page", back: @back_destination = root_path, cancel: @can_cancel = false, request_type: "Reservation" %>
+							<a class="close-reveal-modal">&#215;</a>
+						</div>
+					<% end %>
 				</div>
 			</div>
 			<div class="large-4 columns">
@@ -96,37 +104,26 @@
 
 	<div class="row" style="margin-top: 10px;">		
 		<div class="large-11 columns large-centered">
-			<div class="small-6 large-3 columns" style="padding: 10px;">
-				<div class="large-12 columns">
-					<%= link_to image_tag("families.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Family Portraits"} %>
+			<% @categories.each do |c| %>
+				<div class="small-6 large-3 columns" style="padding: 10px;">
+					<div class="large-12 columns">
+						<%= link_to image_tag(c.image.url, style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => c.name} %>
+					</div>
 				</div>
-			</div>
-			<div class="small-6 large-3 columns" style="padding: 10px;">
-				<div class="large-12 columns">
-					<%= link_to image_tag("seniors.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "High School Seniors"} %>
-				</div>
-			</div>
-			<div class="small-6 large-3 columns" style="padding: 10px;">
-				<div class="large-12 columns">
-					<%= link_to image_tag("pets.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Canine"} %>
-				</div>
-			</div>
-			<div class="small-6 large-3 columns" style="padding: 10px;">
-				<div class="large-12 columns">
-					<%= link_to image_tag("children.jpg", style: "border: solid 1px #666; box-shadow: 0 0 12px #555;"), {:controller => "viewable", :action => "gallery", :category => "Children"} %>
-				</div>
-			</div>
+			<% end %> 
 		</div>
 	</div>
 
 	<div class="row" style="margin-top: 40px;">
 		<div class="large-4 columns" style="padding: 5px 20px">			
-			<div style="border: solid #888 1px; border-radius: 4px; padding: 10px; min-height: 150px;">
+			<div class="quote" style="border: solid #888 1px; border-radius: 4px; padding: 10px; min-height: 100px;">
 				<% if @seniors.any? %>
 					<% @seniors.each do |s| %>
-						<div style="color: #444; line-height: 26px; text-align: justify;">
-							"<%= s.testimonial %>"
-							<div style="text-align: right; font-style: italic; margin-right: 20px; color: #777;">
+						<div style="color: #444; line-height: 26px;">
+							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
+								<%= s.testimonial %>
+							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
+							<div style="text-align: right; font-style: italic; margin-right: 30px; color: #777;">
 								- <%= s.firstname %>
 							</div>
 						</div>
@@ -137,12 +134,14 @@
 			</div>
 		</div>
 		<div class="large-4 columns" style="padding: 5px 20px;">
-			<div style="border: solid #888 1px; border-radius: 4px; padding: 10px; min-height: 150px;">
+			<div class="quote" style="border: solid #888 1px; border-radius: 4px; padding: 10px; min-height: 100px;">
 				<% if @families.any? %>
 					<% @families.each do |f| %>
-						<div style="color: #444; line-height: 26px; text-align: justify;">
-							"<%= f.testimonial %>"
-							<div style="text-align: right; font-style: italic; margin-right: 20px; color: #777;">
+						<div style="color: #444; line-height: 26px;">
+							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
+								<%= f.testimonial %>
+							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
+							<div style="text-align: right; font-style: italic; margin-right: 30px; color: #777;">
 								- <%= f.firstname %>
 							</div>
 						</div>
@@ -153,12 +152,14 @@
 			</div>
 		</div>
 		<div class="large-4 columns" style="padding: 5px 20px">
-			<div style="border: solid #888 1px; border-radius: 4px; padding: 10px; min-height: 150px;">
+			<div class="quote" style="border: solid #888 1px; border-radius: 4px; padding: 10px; min-height: 100px;">
 				<% if @others.any? %>
 					<% @others.each do |o| %>
 						<div style="color: #444; line-height: 26px; text-align: justify;">
-							"<%= o.testimonial %>"
-							<div style="text-align: right; font-style: italic; margin-right: 20px; color: #777;">
+							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
+								<%= o.testimonial %>
+							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
+							<div style="text-align: right; font-style: italic; margin-right: 30px; color: #777;">
 								- <%= o.firstname %>
 							</div>
 						</div>
@@ -172,9 +173,4 @@
 
 
 
-<div id="requestSessionModal" class="reveal-modal" style="top: 15px;">
-	<h3 style="text-align:center">Request Info</h3>
-	<%= render 'contact_forms/form', contact_form: @contact_form = ContactForm.new, origin: @passed_origin = "front_page", back: @back_destination = root_path, cancel: @can_cancel = false, request_type: "Reservation" %>
-	<a class="close-reveal-modal">&#215;</a>
-</div>
 </div>

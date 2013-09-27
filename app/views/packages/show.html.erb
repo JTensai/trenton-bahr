@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="large-11 columns large-centered">
+    <h3 style="text-align:center"><%= @package.name %> - $<%= @package.price %></h3>
+    
+    <br>
+    <br>
+    <div class="large-11 columns large-centered">
+      <h5 style="text-align:center">Available Addons:</h5>
+
+      <% @package.addons.each do |a| %>
+        <%= render 'addon', f: a %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="row" style="margin-top: 65px;">
+  <div class="large-4 large-centered columns"> 
+    <div class="large-5 columns left">   
+      <%= link_to 'Back', :back, class: "button radius expand alert small" %>
+    </div>
+    <div class="large-5 columns right">      
+      <%= link_to "Edit", edit_package_path(@package), class: "button radius expand small" %>
+    </div>
+  </div>
+</div>

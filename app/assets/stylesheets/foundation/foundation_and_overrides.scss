@@ -44,6 +44,11 @@ $sub-nav-border-radius: 0px;
 $sub-nav-active-bg: $heart-red;
 $sub-nav-active-color: $light-cream;
 
+// $button-font-family: Georgia, serif;
+$button-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: "Times New Roman", Times, serif;
+$header-font-family: "Times New Roman", Times, serif;
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -404,7 +409,7 @@ $default-float: left;
 
 // We use these to control button text styles.
 
-// $button-font-family: inherit;
+//$button-font-family: inherit;
 // $button-font-color: #fff;
 // $button-font-color-alt: #333;
 // $button-font-med: emCalc(16);

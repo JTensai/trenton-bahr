@@ -1,0 +1,35 @@
+<h3 style="text-align:center;">Listing All Categories</h3>
+
+<div class="row" style="margin-top: 0px;">
+  <div class="large-11 large-centered columns" style="text-align:center;">   
+    <p>Only the top 6 Categories from this list will be shown on the Gallery page as tabs.<br>The first 4 will appear on the Home page as the picture that has been uploaded with it.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 large-centered columns">
+      <%= link_to 'New Category', new_gallery_image_category_path, class: "button radius expand small" %>
+  </div>
+</div>
+
+
+<div class="row">
+  <table style="margin: 20px auto 0 auto;">
+    <tr>
+      <th>Name</th>
+      <th>Sort order</th>
+      <th>Actions</th>
+    </tr>
+
+  <% @gallery_image_categories.each do |category| %>
+    <tr>
+      <td style="width: 340px; text-align:center;"><%= category.name %></td>
+      <td style="width: 140px; text-align:center;"><%= category.sort_order %></td>
+      <td style="width: 118px; text-align:center;">
+        <%= link_to 'Edit', edit_gallery_image_category_path(category), class: "tiny button radius secondary", style:"margin: 5px 0;" %>
+        <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }, class: "tiny button radius alert", style:"margin: 0;" %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>
