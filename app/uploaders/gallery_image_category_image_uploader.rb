@@ -22,6 +22,11 @@ class GalleryImageCategoryImageUploader < CarrierWave::Uploader::Base
 
   process :resize_to_fit => [400, 400]
 
+
+  def default_url
+      "/assets/default.gif"    
+  end
+
    # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   # def extension_white_list

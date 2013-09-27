@@ -31,12 +31,13 @@ class ViewableController < ApplicationController
 	end
 
     def gallery
-    	@images_by_category = GalleryImage.find_all_by_category(params[:category].gsub('/','%2F'), order: "sort_order")
+    	@images_by_category = GalleryImage.find_all_by_category(params[:category], order: "sort_order")
         @categories = GalleryImageCategory.all(order: :sort_order, :limit => 6)
     end
 
     def gallery_top_text
-        @images_by_category = GalleryImage.find_all_by_category(params[:category].gsub('/','%2F'), order: "sort_order")     
+        @images_by_category = GalleryImage.find_all_by_category(params[:category], order: "sort_order")     
+        @categories = GalleryImageCategory.all(order: :sort_order, :limit => 6)
     end
 
     def session_information
