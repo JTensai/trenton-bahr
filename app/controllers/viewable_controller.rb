@@ -8,13 +8,14 @@ class ViewableController < ApplicationController
         @downloads = Download.all(order: 'name')
         @rotating_images = RotatingImage.where(live: true).all(order: "sort_order")
         @categories = GalleryImageCategory.all(order: :sort_order, limit: 4) 
+        @newsletter_subscription = NewsletterSubscription.new
 	end
 
     def newsletter
         @newsletter = Newsletter.order("updated_at desc").limit(1)
 
         send_data(@newsletter.first.file.read,
-            filename: 'trenton_bahr_newsletter ('+ @newsletter.first.updated_at.strftime("%B %e, %Y")+')',
+            filename: 'Trenton Bahr Newsletter ('+ @newsletter.first.updated_at.strftime("%B %Y")+')',
             type: 'application/pdf',
             disposition: 'attachment',
             url_based_filename: true)

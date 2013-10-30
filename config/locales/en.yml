@@ -2,4 +2,15 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        password_digest: "Password Confirmation"
+      newsletter_subscription:
+        email: "This email"
+    errors:
+      models:
+        newsletter_subscription:
+          attributes:
+            email:
+              taken: "is already subscribed to receive our Newsletter"

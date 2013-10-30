@@ -4,7 +4,7 @@ class CreateEmployees < ActiveRecord::Migration
       t.string :name
       t.string :job_title
       t.string :image
-      t.string :description
+      t.text :description
       t.boolean :current
       t.integer :sort_order
 

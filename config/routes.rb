@@ -1,5 +1,8 @@
 TrentonBahr::Application.routes.draw do
 
+  resources :newsletter_subscriptions
+
+
   resources :gallery_image_categories
 
 

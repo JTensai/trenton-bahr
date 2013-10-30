@@ -8,8 +8,8 @@
 /////////////////////////////////////// MY VALUES /////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-$light-cream: #f6f3ea;
-$darker-cream: #f3ecdc;
+$light-cream: #F7F5EF;
+$darker-cream: #DBC7A9;
 $dark-brown: #1c0205;
 $heart-red: #bb1b1b;
 $accent-red: #5f0f0f;
@@ -48,6 +48,79 @@ $sub-nav-active-color: $light-cream;
 $button-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $body-font-family: "Times New Roman", Times, serif;
 $header-font-family: "Times New Roman", Times, serif;
+
+
+
+// Top Bar Variables
+//
+
+// Background color for the top bar
+
+$topbar-bg: $darker-cream;
+
+// Height and margin
+
+$topbar-height: 33px;
+$topbar-margin-bottom: 0px;
+
+// Control Input height for top bar
+
+// $topbar-input-height: 2.45em;
+
+// Controlling the styles for the title in the top bar
+
+// $topbar-title-weight: bold;
+// $topbar-title-font-size: emCalc(17);
+
+// Style the top bar dropdown elements
+
+$topbar-dropdown-bg: $darker-cream;
+// $topbar-dropdown-link-color: #fff;
+// $topbar-dropdown-link-bg: lighten($topbar-bg, 5%);
+// $topbar-dropdown-toggle-size: 5px;
+// $topbar-dropdown-toggle-color: #fff;
+// $topbar-dropdown-toggle-alpha: 0.5;
+
+// Set the link colors and styles for top-level nav
+
+// $topbar-link-color: #fff;
+// $topbar-link-color-hover: #fff;
+// $topbar-link-color-active: #fff;
+// $topbar-link-weight: bold;
+// $topbar-link-font-size: emCalc(13);
+// $topbar-link-hover-lightness: -30%; // Darken by 30%
+// $topbar-link-bg-hover: darken($topbar-bg, 3%);
+// $topbar-link-bg-active: darken($topbar-bg, 3%);
+
+// $topbar-dropdown-label-color: #555;
+// $topbar-dropdown-label-text-transform: uppercase;
+// $topbar-dropdown-label-font-weight: bold;
+// $topbar-dropdown-label-font-size: emCalc(10);
+
+// Top menu icon styles
+
+// $topbar-menu-link-transform: uppercase;
+// $topbar-menu-link-font-size: emCalc(13);
+// $topbar-menu-link-weight: bold;
+$topbar-menu-link-color: #333;
+$topbar-menu-icon-color: #333;
+// $topbar-menu-link-color-toggled: #888;
+// $topbar-menu-icon-color-toggled: #888;
+
+// Transitions and breakpoint styles
+
+// $topbar-transition-speed: 300ms;
+// $topbar-breakpoint: 768px; // Change to 9999px for always mobile layout
+// $topbar-media-query: "only screen and (min-width: #{$topbar-breakpoint})";
+
+// Divider Styles
+
+// $topbar-divider-border-bottom: solid 1px lighten($topbar-bg, 10%);
+// $topbar-divider-border-top: solid 1px darken($topbar-bg, 10%);
+
+// Sticky Class
+
+// $topbar-sticky-class: ".sticky";
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -1287,7 +1360,7 @@ $default-float: left;
 
 // Background color for the top bar
 
-// $topbar-bg: #111;
+// $topbar-bg: blue;
 
 // Height and margin
 

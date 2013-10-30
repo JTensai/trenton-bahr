@@ -6,36 +6,47 @@
 		<h3 style="text-align:center">Subscribe to our Newsletter!</h3>
 
 		<!-- Replace with correct form after making the email list -->
-		<div style="margin: 30px 0;">
+		<div style="margin: 30px 0 0 0;">
 			<div class="row">
-				<div class="large-3 columns">
-					<label class="inline right" for="name" style="margin-right: 20px;">Name: </label>
-				</div>
-				<div class="large-7 columns left">
-					<input id="name" name="name" type="text" disabled="">
-				</div>
-			</div>
-			<div class="row">
-				<div class="large-3 columns">
-					<label class="inline right" for="email" style="margin-right: 20px;">E-Mail: </label>
-				</div>
-				<div class="large-7 columns left">
-					<input id="email" name="email" type="email" disabled="">
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="large-8 columns large-centered">
-				<div class="large-5 columns">
-					<%= link_to "Subscribe", 'javascript: alert("Not yet implemented")', { class: "button left expand close_modal" } %>
-				</div>
-				<div class="large-5 columns">
-					<%= link_to "Skip", { action: "newsletter" }, { class: "button secondary right expand close_modal" } %>
-				</div>
-			</div>
+
+			  <%= form_for @newsletter_subscription, html: {:class => "custom", :'data-abide' => ''} do |f| %>
+
+			    <div class="row">
+			      <div class="small-3 columns">
+			        <%= f.label :name, "Name: ", class: "inline right", style: "margin-right: 20px;" %>
+			      </div>
+			      <div class="small-8 columns left">
+			        <%= f.text_field :name, required:'' %>
+			        <small class="error">Can't be blank</small>
+			      </div>
+			    </div>
+			    <div class="row">
+			      <div class="small-3 columns">
+			        <%= f.label :email, "E-Mail: ", class: "right inline", style: "margin-right: 20px;" %>
+			      </div>
+			      <div class="small-8 columns left">
+			        <%= f.email_field :email, required:'' %>
+			        <small class="error">Please enter a Valid Email</small>
+			      </div>
+			    </div>
+
+			    <%= hidden_field_tag "origin", "front_page" %>
+
+			    <div class="row" style="margin-top: 30px">
+			      <div class="small-10 small-centered columns"> 
+			        <div class="small-5 columns left">   
+			          <%= link_to "Skip", { action: "newsletter" }, { class: "button secondary right expand close_modal" } %>
+			        </div>
+			        <div class="small-5 columns right">      
+			          <%= f.submit "Subscribe", class: "button expand" %>
+			        </div>
+			      </div>
+			    </div>
+		    <% end %>
+		  </div>
 		</div>
 
-			
+		
 		<%#= render 'contact_forms/form', contact_form: @contact_form = ContactForm.new, origin: @passed_origin = "front_page", back: @back_destination = root_path, cancel: @can_cancel = false, request_type: "Reservation" %>
 		<a class="close-reveal-modal">&#215;</a>
 	</div>
@@ -44,7 +55,7 @@
 <div class="large-12 columns">
 	<div class="row">		
 		<div class="large-11 columns large-centered">
-			<div class="slideshow-wrapper" style="border: solid 2px #444; box-shadow: 0 0 20px #666; overflow:hidden; white-space:nowrap; max-height: 454px; background-color: #444;">
+			<div class="slideshow-wrapper" style="border: solid 2px #444; box-shadow: 0 0 20px #666; overflow:hidden; white-space:nowrap; height: 454px;">
 				<div class="preloader"></div>
 				<ul data-orbit data-options="<%= @orbit_options %>">
 					<% if @rotating_images == [] %>
@@ -62,7 +73,6 @@
 		</div>
 	</div>
 	<h5 style="font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif; font-style: italic; margin: 20px 0 20px 0; text-align:center;">"This is where the Guarantee will go (New Font)" <span style="font-size: 13px">-Trenton Bahr</span></h5>
-	<h5 style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-style: italic; margin: 20px 0 20px 0; text-align:center;">"This is where the Guarantee will go (Old Font)" <span style="font-size: 13px">-Trenton Bahr</span></h5>
 	<div class="row" style="margin-top: 20px;">
 		<div class="large-11 columns large-centered">
 			<div class="large-4 columns">
@@ -119,11 +129,11 @@
 			<div class="quote" style="border: solid #888 1px; border-radius: 4px; padding: 10px; min-height: 100px;">
 				<% if @seniors.any? %>
 					<% @seniors.each do |s| %>
-						<div style="color: #444; line-height: 26px;">
-							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
+						<div style="color: #333; line-height: 26px; font-style: italic;">
+							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px; font-style: italic;">"</h3>
 								<%= s.testimonial %>
-							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
-							<div style="text-align: right; font-style: italic; margin-right: 30px; color: #777;">
+							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px; font-style: italic;">"</h3>
+							<div style="text-align: right; font-style: normal; margin-right: 15px; color: #555; font-size: 14px;">
 								- <%= s.firstname %>
 							</div>
 						</div>
@@ -137,11 +147,11 @@
 			<div class="quote" style="border: solid #888 1px; border-radius: 4px; padding: 10px; min-height: 100px;">
 				<% if @families.any? %>
 					<% @families.each do |f| %>
-						<div style="color: #444; line-height: 26px;">
-							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
+						<div style="color: #333; line-height: 26px; font-style: italic;">
+							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px; font-style: italic;">"</h3>
 								<%= f.testimonial %>
-							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
-							<div style="text-align: right; font-style: italic; margin-right: 30px; color: #777;">
+							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px; font-style: italic;">"</h3>
+							<div style="text-align: right; font-style: normal; margin-right: 15px; color: #555; font-size: 14px;">
 								- <%= f.firstname %>
 							</div>
 						</div>
@@ -155,11 +165,11 @@
 			<div class="quote" style="border: solid #888 1px; border-radius: 4px; padding: 10px; min-height: 100px;">
 				<% if @others.any? %>
 					<% @others.each do |o| %>
-						<div style="color: #444; line-height: 26px; text-align: justify;">
-							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
+						<div style="color: #333; line-height: 26px; font-style: italic;">
+							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px; font-style: italic;">"</h3>
 								<%= o.testimonial %>
-							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px;">"</h3>
-							<div style="text-align: right; font-style: italic; margin-right: 30px; color: #777;">
+							<h3 style="display:inline; font-family: 'Times New Roman', Times, serif; line-height: 24px; font-style: italic;">"</h3>
+							<div style="text-align: right; font-style: normal; margin-right: 15px; color: #555; font-size: 14px;">
 								- <%= o.firstname %>
 							</div>
 						</div>

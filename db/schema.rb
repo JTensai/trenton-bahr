@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130922031312) do
+ActiveRecord::Schema.define(:version => 20131016002849) do
 
   create_table "addons", :force => true do |t|
     t.string   "name"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(:version => 20130922031312) do
     t.string   "name"
     t.string   "job_title"
     t.string   "image"
-    t.string   "description"
+    t.text     "description"
     t.boolean  "current"
     t.integer  "sort_order"
     t.datetime "created_at",  :null => false
@@ -105,6 +105,13 @@ ActiveRecord::Schema.define(:version => 20130922031312) do
     t.datetime "updated_at",                :null => false
   end
 
+  create_table "newsletter_subscriptions", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "newsletters", :force => true do |t|
     t.string   "file"
     t.string   "description"
@@ -138,9 +145,8 @@ ActiveRecord::Schema.define(:version => 20130922031312) do
     t.string   "image"
     t.boolean  "live"
     t.integer  "sort_order"
-    t.integer  "rotation_time"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "session_infos", :force => true do |t|

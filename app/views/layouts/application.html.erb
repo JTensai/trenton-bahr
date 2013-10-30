@@ -23,14 +23,16 @@
   </head>
 
   <body style="background-color: #DBC7A9;">
-    <div class="large-7 columns large-centered small-12">
-      <div id="bottomLogoModal" class="reveal-modal">
-        <h3>Information on the inspiration behind the logo and how it expresses Trenton's heart.</h3>
-        <p>Content goes here.</p>
-        <a class="close-reveal-modal">&#215;</a>
-      </div>
-      <%= yield :modals %>
-    </div>  
+    <div class="row">
+      <div class="large-12 columns large-centered small-12">
+        <div id="bottomLogoModal" class="reveal-modal">
+          <h3>Information on the inspiration behind the logo and how it expresses Trenton's heart.</h3>
+          <p>Content goes here.</p>
+          <a class="close-reveal-modal">&#215;</a>
+        </div>
+        <%= yield :modals %>
+      </div>  
+    </div>
 
     <div id="fb-root"></div>
     <script>
@@ -38,33 +40,34 @@
 
     </script>
     <div id="header" class="row">
-      <div class="row">
+
+      <div class="row hide-for-small show-for-medium-up">
         <div class="large-5 columns" style="height:100px;">
           <%= link_to image_tag("Bahr_Temp_Logo.png"), root_path %>
         </div>
+
         <div class="large-5 columns right">
           <div class="large-6 columns" style="font-size: 24px; text-align: right; margin: 19px 0 0 0;">
             (916)-797-1002
           </div>
-          <div class="large-5 columns right" style="padding: 5px; text-align:right; line-height: 26px; height: 90px; margin: 10px 0 -10px 0;">
+          <div class="large-6 columns right" style="padding: 5px; text-align:right; line-height: 26px; height: 90px; margin: 10px 0 -10px 0;">
             4880 Douglas Blvd<br>Granite Bay CA 95746<br>
             <div class="fb-like" style="margin-top: 3px; height: 22px;" data-href="https://www.facebook.com/pages/Trenton-Bahr-Fine-Portraiture/446345495455" data-width="130" data-layout="button_count" data-show-faces="false" data-send="false"></div>
           </div>
         </div>
       </div>
-      
 
-      <div class="row" style="margin-top: 0px;">
-        <div class="large-12 columns large-centered">
-          <div class="large-10 columns large-centered">
-            <ul class="menu_button_group round">
-              <li style="height: 28px;"><%= link_to "Home", home_path, class: "menu_button" %></li>
-              <li><%= link_to "Session Info", session_information_path, class: "menu_button" %></li>
-              <li><%= link_to "The Artistry", { controller: "viewable", action: "gallery", category: GalleryImageCategory.find_by_sort_order(1).name }, class: "menu_button" %></li>
-              <li><%= link_to "About Us", about_path, class: "menu_button" %></li>
-              <li><%= link_to "Contact", contact_path, class: "menu_button" %></li>
-              <li><%= link_to "Charities", charities_path, class: "menu_button" %></li>
-            </ul>
+      <div class="row show-for-small hide-for-medium-up">
+        <div class="small-12 columns">
+          <%= link_to image_tag("Bahr_Temp_Logo.png"), root_path %>
+            <div class="fb-like" style="margin-top: -12px; height: 22px; float: right;" data-href="https://www.facebook.com/pages/Trenton-Bahr-Fine-Portraiture/446345495455" data-width="130" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+        </div>
+        <div class="small-12 columns" style="margin-bottom: -45px;">
+          <div class="small-6 columns right" style="font-size: 20px; text-align: right; margin: 0px 0 0 0;">
+            (916)-797-1002
+          </div>
+          <div class="small-6 columns left" style="padding: 5px; text-align:left; line-height: 26px; height: 90px; margin: -10px 0 -10px 0;">
+            4880 Douglas Blvd<br>Granite Bay CA 95746
           </div>
         </div>
       </div>
@@ -83,7 +86,42 @@
       </div>
     <% end %>
 
+    <div class="contain-to-grid">
+      <nav class="top-bar" style="background-color: transparent;">
+        <ul class="title-area">
+          <li class="name"></li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+        <section class="top-bar-section">
+          <div class="large-10 columns large-centered show-for-medium-up hide-for-small">
+            <ul class="menu_button_group">
+              <li><%= link_to "Home", home_path, class: "menu_button" %></li>
+              <li><%= link_to "Session Info", session_information_path, class: "menu_button" %></li>
+              <li><%= link_to "The Artistry", { controller: "viewable", action: "gallery", category: GalleryImageCategory.find_by_sort_order(1).name }, class: "menu_button" %></li>
+              <li><%= link_to "About Us", about_path, class: "menu_button" %></li>
+              <li><%= link_to "Contact", contact_path, class: "menu_button" %></li>
+              <li><%= link_to "Charities", charities_path, class: "menu_button" %></li>
+            </ul>
+          </div>
 
+          <div class="small-12 columns small-centered show-for-small hide-for-medium-up">
+            <ul class="small_menu_button_group">
+              <li><%= link_to "Home", home_path, class: "menu_button" %></li>
+              <li><%= link_to "Session Info", session_information_path, class: "menu_button" %></li>
+            </ul>
+            <ul class="small_menu_button_group">
+              <li><%= link_to "The Artistry", { controller: "viewable", action: "gallery", category: GalleryImageCategory.find_by_sort_order(1).name }, class: "menu_button" %></li>
+              <li><%= link_to "About Us", about_path, class: "menu_button" %></li>
+              </ul>
+            <ul class="small_menu_button_group">
+              <li><%= link_to "Contact", contact_path, class: "menu_button" %></li>
+              <li><%= link_to "Charities", charities_path, class: "menu_button" %></li>
+
+            </ul>
+          </div>
+        </section>        
+      </nav>
+    </div>
 
     <div id="page" class="row">  
 
