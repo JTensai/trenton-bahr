@@ -17,6 +17,7 @@ TrentonBahr::Application.routes.draw do
   get 'home', to: 'viewable#home'
   get 'about', to: 'viewable#about'
   get 'charities', to: 'viewable#charities'
+  get 'charities_ph', to: 'viewable#charities_ph'
   get 'gallery', to: 'viewable#gallery'
   get 'session_information', to: 'viewable#session_information'
   get 'contact', to: 'viewable#contact'
